@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" xmlns:bx="https://boxy-svg.com">
+  <defs>
+    <pattern id="pattern-0" x="0" y="0" width="25" height="25" patternUnits="userSpaceOnUse" viewBox="0 0 100 100">
+      <rect x="0" y="0" width="50" height="100" style="fill: black;"/>
+    </pattern>
+  </defs>
+  <g transform="matrix(-1.118938, 0, 0, 1.016031, 526.761841, -3.758795)" style="">
+    <title>Elephant</title>
+    <path style="stroke: rgb(98, 84, 84); stroke-width: 18.4275px; fill: rgb(165, 157, 157);" d="M 312.522 33.628 C 454.957 31.931 457.319 233.809 457.288 233.808 C 450.627 373.323 369.447 364.07 326.932 363.497 C 234.012 362.244 172.015 264.185 173.966 219.469 C 150.987 125.578 218.9 29.972 312.522 33.628 Z">
+      <title>Body</title>
+    </path>
+    <path style="stroke: rgb(98, 84, 84); stroke-width: 18.4275px; fill: rgb(165, 157, 157);" d="M 78.733 82.579 C 102.084 41.202 128.929 26.049 157.719 17.698 C 195.118 6.85 198.158 18.807 206.174 28.914 C 213.721 38.429 225.487 145.708 202.458 156.797 C 188.58 178.71 128.665 224.622 130.077 222.392 C 60.278 205.696 56.67 134.049 78.733 82.579 Z">
+      <title>Head</title>
+    </path>
+    <path style="stroke: rgb(98, 84, 84); stroke-width: 18.4275px; fill: rgb(165, 157, 157);" d="M 103.024 205.745 C 54.099 327.081 40.446 412.18 34.847 424.779 C 75.695 445.235 99.463 450.84 116.778 454.907 C 121.25 437.185 122.191 383.879 139.06 317.107 C 157.739 243.17 138.898 205.075 156.347 205.861 L 103.024 205.745 Z">
+      <title>Trunk</title>
+    </path>
+    <path style="stroke: rgb(98, 84, 84); stroke-width: 18.4275px; fill: none;" d="M 314.614 339.81 C 295.282 439.966 286.996 486.761 295.015 464.773 C 310.27 458.553 259.776 467.106 244.629 471.717">
+      <title>Leg</title>
+    </path>
+    <path style="stroke: rgb(98, 84, 84); stroke-width: 18.4275px; fill: none;" d="M 372.935 346.702 C 370.163 354.574 375.849 489.313 382.477 470.49 C 396.365 459.738 344.153 475.064 325.301 486.968">
+      <title>Leg</title>
+    </path>
+    <path style="stroke: rgb(98, 84, 84); stroke-width: 18.4275px; fill: none;" d="M 397.659 337.864 C 399.938 352.428 420.267 442.881 429.509 427.723 C 427.328 422.488 411.389 449.071 398.273 457.952">
+      <title>Leg</title>
+    </path>
+    <path style="stroke-width: 18.4275px; stroke: rgb(98, 84, 84); fill: none;" d="M 173.87 191.698 C 167.882 215.644 171.661 255.977 59.026 313.952" transform="matrix(0.988655, 0.165421, -0.136393, 0.988655, 30.364182, -25.826822)" bx:origin="0.97 0.137">
+      <title>Tusk</title>
+    </path>
+  </g>
+</svg>
