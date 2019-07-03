@@ -27,7 +27,7 @@ class Elephant {
 
     float tempV = 0;
     if (slowness < config.elephantAccelerationTimeout && direction == _previousDirection) {
-      tempV = ceil(config.elephantAccelerator * (config.elephantSlownessInverter / slowness));
+      tempV = ceil(config.elephantAccelerator * (config.elephantSlownessInverter / max(1, slowness)));
     }
     
     return min(config.elephantMaxSpeed, config.elephantSpeed + tempV);

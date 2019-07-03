@@ -1,18 +1,38 @@
 class Keyboard {
-  void keyPressed() {
-    info.hide();
-
+  void checkKey() {
     if (keyCode == LEFT) {
-      elephant.moveLeft();
     } else if (keyCode == RIGHT) {
       elephant.moveRight();
     } else if (keyCode == ENTER) {
       elephant.poop(poops);
-    } else if (key == '?') { // toggle debug
-      config.debug = !config.debug;
-      println("Debug: " + config.debug);
-    } else if (config.debug) { // test debug
-      config.useDebugKey(keyCode);
     }
+
+    switch (keyCode) {
+    case LEFT:
+      elephant.moveLeft();
+      return;
+    case RIGHT:
+      elephant.moveRight();
+      return;
+    case ENTER:
+      elephant.poop(poops);
+      return;
+    default:
+      if (config.debug) { // test debug
+        checkDebugs();
+      } else if (key == '?') { // toggle debug
+        config.debug = !config.debug;
+        println("Debug: " + config.debug);
+      }
+    }
+  }
+
+  void checkDebugs() {
+    if (keyCode == UP) {
+      config.poopStartY += 1;
+    } else if (keyCode == DOWN) {
+      config.poopStartY -= 1;
+    }
+    println("poopStartY: " + config.poopStartY);
   }
 }

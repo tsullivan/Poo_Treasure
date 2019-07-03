@@ -7,36 +7,21 @@ Info info = new Info();
 
 void setup() {
   size(1000, 750);
- 
   elephant = new Elephant();
   poops = new PoopSet();
 }
 
 void draw() {
-  background(126);
-
-  elephant.draw();
+  background(config.backGround);
   poops.draw();
   info.draw();
+  elephant.draw();
 }
 
 void keyPressed() {
   info.hide();
-
-  if (keyCode == LEFT) {
-    elephant.moveLeft();
-  } else if (keyCode == RIGHT) {
-    elephant.moveRight();
-  } else if (keyCode == ENTER) {
-    elephant.poop(poops);
-  } else if (key == '?') { // toggle debug
-    config.debug = !config.debug;
-    println("Debug: " + config.debug);
-  } else if (config.debug) { // test debug
-    config.useDebugKey(keyCode);
-  }
+  kbd.checkKey();
 }
-
 
 /*
  * Helpers
