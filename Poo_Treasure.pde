@@ -1,14 +1,13 @@
-Config config;
-Info info;
 Elephant elephant;
 PoopSet poops;
 
+Config config = new Config();
+Keyboard kbd = new Keyboard();
+Info info = new Info();
+
 void setup() {
   size(1000, 750);
-  frameRate(30);
-
-  config = new Config();
-  info = new Info();
+ 
   elephant = new Elephant();
   poops = new PoopSet();
 }
