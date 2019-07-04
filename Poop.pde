@@ -9,7 +9,7 @@ class Poop {
 
   Poop(int tempX) {
     _x = tempX;
-    _y = config.poopStartY;
+    _y = config.poopYStart;
     _birthTime = millis();
   }
 
@@ -33,10 +33,10 @@ class Poop {
       ellipse(_x, _y, config.poopSize * 2, config.poopSize / 2);
     } else {    
       _y = _y + config.poopSpeed + _distance;
-      _y = min(_y, config.poopStopY);
+      _y = min(_y, config.poopYStop);
       ellipse(_x, _y, config.poopSize, config.poopSize);
 
-      if (_y < config.poopStopY) {
+      if (_y < config.poopYStop) {
         _distance += 1;
         _distance += _distance * config.distanceAccelerator;
       } else {

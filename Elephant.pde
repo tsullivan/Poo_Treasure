@@ -50,9 +50,9 @@ class Elephant {
   }
 
   void poop(PoopSet p1) {
-    int x = _x;
+    int x = _x + config.poopXOffset;
     if (_previousDirection == LEFT) {
-      x = _x + (config.elephantSize);
+      x = _x + config.elephantSize - config.poopXOffset;
     }
     p1.add(x);
   }

@@ -29,10 +29,10 @@ class Keyboard {
 
   void checkDebugs() {
     if (keyCode == UP) {
-      config.poopStartY += 1;
+      config.poopXOffset += 1;
     } else if (keyCode == DOWN) {
-      config.poopStartY -= 1;
+      config.poopXOffset -= 1;
     }
-    println("poopStartY: " + config.poopStartY);
+    println("poopXOffset: " + config.poopXOffset);
   }
 }

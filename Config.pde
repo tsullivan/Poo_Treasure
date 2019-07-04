@@ -12,15 +12,16 @@ class Config {
   int infoFlashTime = 5550;
 
   int elephantY = 240;
-  int elephantSize = 140;
+  int elephantSize = 225;
   int elephantSpeed = 1;
   int elephantSlownessInverter = 250000;
   int elephantMaxSpeed = 9;
   int elephantAccelerationTimeout = 110;
   float elephantAccelerator = 1.1;
 
-  int poopStartY = 325;
-  int poopStopY = 685;
+  int poopYStart = 325;
+  int poopYStop = 685;
+  int poopXOffset = 10;
   int poopSize = 32;
   int poopExplodingTime = 5000;
   int poopExplodedTime = 7000;
