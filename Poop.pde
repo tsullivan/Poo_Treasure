@@ -4,25 +4,28 @@ class Poop {
   private int _birthTime = 0;
   private float _distance = 0;
   private boolean _isSplatted = false;
-  
+
   public boolean isDead = false;
 
-  Poop(int tempX) {
+  Poop(int tempX, int tempY) {
     _x = tempX;
-    _y = config.poopYStart;
+    _y = tempY + config.poopYStartOffset;
     _birthTime = millis();
   }
 
   void draw() {
-    int ageSeconds = millis() - _birthTime;
- 
-    if (ageSeconds > config.poopExplodedTime) {
-      isDead = true;
-      return;
-    }
-    if (ageSeconds > config.poopExplodingTime) { // blink
-      if (flash(millis())) {
+
+    if (config.debug) {
+      int ageSeconds = millis() - _birthTime;
+
+      if (ageSeconds > config.poopExplodedTime) {
+        isDead = true;
         return;
+      }
+      if (ageSeconds > config.poopExplodingTime) { // blink
+        if (flash(millis())) {
+          return;
+        }
       }
     }
 
