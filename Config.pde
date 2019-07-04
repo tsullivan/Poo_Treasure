@@ -11,7 +11,7 @@ class Config {
 
   color elephantFillColor = color(165, 157, 157);
   color elephantStrokeColor = color(98, 84, 84);
-  float elephantStrokeWeight = 18.5;
+  float elephantStrokeWeight = 10;
   int elephantXMargin = 110;
   int elephantYMin = 140;
   int elephantYMax = 370;
@@ -31,4 +31,13 @@ class Config {
   int poopThrottle = 428;  
   float poopSpeed = 1.35;
   color poopColor = color(131, 71, 5);
+
+  void debugConfig() {
+    if (key == 'u') {
+      config.elephantSize = config.elephantSize - 1;
+    }
+    if (key == 'd') {
+      config.elephantSize = config.elephantSize + 1;
+    }
+  }
 }

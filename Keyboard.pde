@@ -29,14 +29,9 @@ class Keyboard {
       config.debug = !config.debug;
       println("Debug: " + config.debug);
     }
-    
+
     if (config.debug) {
-      if (key == 'u') {
-        config.elephantYMax = config.elephantYMax - 1;
-      }
-      if (key == 'd') {
-        config.elephantYMax = config.elephantYMax + 1;
-      }println("config.elephantYMax: " + config.elephantYMax);
+      config.debugConfig();
     }
   }
 }
