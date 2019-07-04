@@ -14,8 +14,7 @@ class Poop {
   }
 
   void draw() {
-
-    if (config.debug) {
+    if (!config.debug) {
       int ageSeconds = millis() - _birthTime;
 
       if (ageSeconds > config.poopExplodedTime) {
@@ -62,7 +61,7 @@ class PoopSet {
   }
 
   void add(int x, int y) {
-    if (millis() - _lastPoop < config.poopThrottle) { 
+    if (!config.debug && millis() - _lastPoop < config.poopThrottle) { 
       return; // throttle the poops
     }
 

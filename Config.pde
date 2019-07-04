@@ -2,6 +2,7 @@ class Config {
   public boolean debug = false;
 
   int textSize = 32;
+  int strokeWeight = 8;
   int textMargin = 10;
   color backGround = 126;
   float distanceAccelerator = 1.05;
@@ -11,9 +12,8 @@ class Config {
 
   color elephantFillColor = color(165, 157, 157);
   color elephantStrokeColor = color(98, 84, 84);
-  float elephantStrokeWeight = 10;
   int elephantXMargin = 110;
-  int elephantYMin = 140;
+  int elephantYMin = -10;
   int elephantYMax = 370;
   int elephantSize = 225;
   int elephantSpeed = 1;
@@ -32,12 +32,9 @@ class Config {
   float poopSpeed = 1.35;
   color poopColor = color(131, 71, 5);
 
-  void debugConfig() {
-    if (key == 'u') {
-      config.elephantSize = config.elephantSize - 1;
-    }
-    if (key == 'd') {
-      config.elephantSize = config.elephantSize + 1;
-    }
-  }
+  int shortySize = 160;
+  int shortyXMargin = 50;
+  int shortyYMargin = 280;
+  int shortyYMin = 100;
+  color shortyStrokeColor = color(98, 84, 84);
 }

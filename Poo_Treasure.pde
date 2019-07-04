@@ -1,4 +1,6 @@
 Elephant elephant;
+Shorty shorty;
+GuySet guys;
 PoopSet poops;
 
 Config config = new Config();
@@ -10,6 +12,7 @@ void setup() {
   frameRate(16);
   elephant = new Elephant();
   poops = new PoopSet();
+  shorty = new Shorty();
 }
 
 void draw() {
@@ -17,12 +20,14 @@ void draw() {
   poops.draw();
   info.draw();
   elephant.draw();
-
+  shorty.draw();
+  guys.draw();
 
   /*
    * Debug
    */
   if (config.debug) {
+    strokeWeight(1);
     line(0, config.elephantYMin, width, config.elephantYMin);
     line(0, config.elephantYMax, width, config.elephantYMax);
   }

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <g style="">
+    <path d="M 124.845 304.485 C 124.401 93.773 343.033 102.146 338.113 175.676 C 336.991 192.452 383.75 359.382 353.046 386.612 C 314.53 420.77 83.341 416.424 134.308 345.882" style="stroke: rgb(0, 0, 0); fill: none; stroke-linecap: round; vector-effect: non-scaling-stroke; stroke-width: 10px;">
+      <title>Body</title>
+    </path>
+    <path d="M 145.407 289.259 C 140.911 305.045 78.289 458.376 73.539 460.727 C 72.994 460.997 12.429 438.875 8.392 438.875" style="stroke: rgb(0, 0, 0); fill: none; stroke-linecap: round; vector-effect: non-scaling-stroke; stroke-width: 10px;">
+      <title>Leg L</title>
+    </path>
+    <path d="M 359.753 319.207 C 370.076 323.995 460.705 372.118 473.093 382.919 C 478.3 387.459 396.471 479.373 396.643 479.373" style="stroke: rgb(0, 0, 0); fill: none; stroke-linecap: round; vector-effect: non-scaling-stroke; stroke-width: 10px;">
+      <title>Leg R</title>
+    </path>
+    <path d="M 346.528 290.553 C 369.255 287.564 457.799 286.751 457.799 290.997" style="stroke: black; fill: none; stroke-linecap: round; vector-effect: non-scaling-stroke; stroke-width: 10px;">
+      <title>Arm R</title>
+    </path>
+    <path d="M 185.156 249.933 C 170.116 249.933 17.231 284.2 10.779 290.59" style="stroke: black; fill: none; stroke-linecap: round; vector-effect: non-scaling-stroke; stroke-width: 10px;">
+      <title>Arm L</title>
+    </path>
+    <path d="M 286.435 149.863 C 296.057 129.728 292.676 68.853 290.75 59.633 C 287.622 44.658 260.521 23.274 247.415 20.536 C 244.244 19.874 201.857 42.268 197.807 50.572 C 186.143 74.484 189.855 120.919 203.157 157.206" style="stroke: black; fill: none; stroke-linecap: round; vector-effect: non-scaling-stroke; stroke-width: 10px;">
+      <title>Head</title>
+    </path>
+    <path d="M 206.7 95.668 C 235.009 138.513 247.577 120.767 268.231 87.083" style="stroke: black; fill: none; stroke-linecap: round; vector-effect: non-scaling-stroke; stroke-width: 10px;"/>
+    <path d="M 231.763 65.176 C 227.325 64.354 221.977 63.709 217.539 63.075" style="stroke: black; fill: none; stroke-linecap: round; vector-effect: non-scaling-stroke; stroke-width: 10px;"/>
+    <path d="M 256.591 62.657 C 259.973 62.296 265.142 57.902 266.642 57.149" style="stroke: black; fill: none; stroke-linecap: round; vector-effect: non-scaling-stroke; stroke-width: 10px;"/>
+  </g>
+</svg>

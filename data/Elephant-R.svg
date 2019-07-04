@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
-  <g style="" transform="matrix(1.093681, -0.000025, 0.01074, 0.988728, -22.209742, 2.6217)">
+  <g style="" transform="matrix(1.128454, -0.000025, 0.011145, 1.026026, -31.812771, -5.119338)">
     <title>Elephant</title>
-    <path style="fill: rgb(165, 157, 157); stroke: rgb(101, 87, 87); stroke-linecap: round; stroke-linejoin: round; stroke-width: 9.60426px;" d="M 177.902 363.715 C 320.337 365.412 322.699 163.534 322.668 163.535 C 316.007 24.02 234.827 33.273 192.312 33.846 C 99.392 35.099 37.395 133.158 39.346 177.874 C 16.367 271.765 84.28 367.371 177.902 363.715 Z" transform="matrix(-1, 0, 0, -1, 357.51564, 397.343262)">
+    <path style="fill: rgb(165, 157, 157); stroke: rgb(101, 87, 87); stroke-linecap: round; stroke-linejoin: round; vector-effect: non-scaling-stroke; stroke-width: 10px;" d="M 177.902 363.715 C 320.337 365.412 322.699 163.534 322.668 163.535 C 316.007 24.02 234.827 33.273 192.312 33.846 C 99.392 35.099 37.395 133.158 39.346 177.874 C 16.367 271.765 84.28 367.371 177.902 363.715 Z" transform="matrix(-1, 0, 0, -1, 357.51564, 397.343262)">
       <title>Body</title>
     </path>
-    <path style="fill: rgb(165, 157, 157); stroke: rgb(101, 87, 87); stroke-linecap: round; stroke-linejoin: round; stroke-width: 9.60426px;" d="M 288.174 153.3 C 311.525 194.677 338.37 209.83 367.16 218.181 C 404.559 229.029 407.599 217.072 415.615 206.965 C 423.162 197.45 434.928 90.171 411.899 79.082 C 398.021 57.169 338.106 11.257 339.518 13.487 C 269.719 30.183 266.111 101.83 288.174 153.3 Z" transform="matrix(-1, 0, 0, -1, 701.576691, 235.87944)">
+    <path style="fill: rgb(165, 157, 157); stroke: rgb(101, 87, 87); stroke-linecap: round; stroke-linejoin: round; vector-effect: non-scaling-stroke; stroke-width: 10px;" d="M 288.174 153.3 C 311.525 194.677 338.37 209.83 367.16 218.181 C 404.559 229.029 407.599 217.072 415.615 206.965 C 423.162 197.45 434.928 90.171 411.899 79.082 C 398.021 57.169 338.106 11.257 339.518 13.487 C 269.719 30.183 266.111 101.83 288.174 153.3 Z" transform="matrix(-1, 0, 0, -1, 701.576691, 235.87944)">
       <title>Head</title>
     </path>
-    <path style="fill: rgb(165, 157, 157); stroke: rgb(101, 87, 87); stroke-linecap: round; stroke-linejoin: round; stroke-width: 9.60426px;" d="M 403.965 454.907 C 355.04 333.571 341.387 248.472 335.788 235.873 C 376.636 215.417 400.404 209.812 417.719 205.745 C 422.191 223.467 423.132 276.773 440.001 343.545 C 458.68 417.482 439.839 455.577 457.288 454.791 L 403.965 454.907 Z" transform="matrix(-1, 0, 0, -1, 793.075989, 660.652008)">
+    <path style="fill: rgb(165, 157, 157); stroke: rgb(101, 87, 87); stroke-linecap: round; stroke-linejoin: round; vector-effect: non-scaling-stroke; stroke-width: 10px;" d="M 403.965 454.907 C 355.04 333.571 341.387 248.472 335.788 235.873 C 376.636 215.417 400.404 209.812 417.719 205.745 C 422.191 223.467 423.132 276.773 440.001 343.545 C 458.68 417.482 439.839 455.577 457.288 454.791 L 403.965 454.907 Z" transform="matrix(-1, 0, 0, -1, 793.075989, 660.652008)">
       <title>Trunk</title>
     </path>
-    <path style="fill: none; stroke: rgb(101, 87, 87); stroke-linecap: round; stroke-linejoin: round; stroke-width: 9.60426px;" d="M 247.506 471.717 C 231.724 391.731 225.494 339.935 227.907 346.754 C 233.778 343.601 192.668 344.421 177.521 339.81" transform="matrix(-1, 0, 0, -1, 425.026993, 811.527008)" id="leg1">
+    <path style="fill: none; stroke: rgb(101, 87, 87); stroke-linecap: round; stroke-linejoin: round; vector-effect: non-scaling-stroke; stroke-width: 10px;" d="M 247.506 471.717 C 231.724 391.731 225.494 339.935 227.907 346.754 C 233.778 343.601 192.668 344.421 177.521 339.81" transform="matrix(-1, 0, 0, -1, 425.026993, 811.527008)" id="leg1">
       <title>Leg</title>
     </path>
-    <path style="fill: none; stroke: rgb(101, 87, 87); stroke-linecap: round; stroke-linejoin: round; stroke-width: 9.60426px;" d="M 161.2 481.252 C 159.735 476.286 166.908 348.242 170.742 357.464 C 176.779 361.46 132.418 352.89 113.566 340.986" id="leg2" transform="matrix(-1, 0, 0, -1, 286.62812, 822.238007)">
+    <path style="fill: none; stroke: rgb(101, 87, 87); stroke-linecap: round; stroke-linejoin: round; vector-effect: non-scaling-stroke; stroke-width: 10px;" d="M 161.2 481.252 C 159.735 476.286 166.908 348.242 170.742 357.464 C 176.779 361.46 132.418 352.89 113.566 340.986" id="leg2" transform="matrix(-1, 0, 0, -1, 286.62812, 822.238007)">
       <title>Leg</title>
     </path>
-    <path style="fill: none; stroke: rgb(101, 87, 87); stroke-linecap: round; stroke-linejoin: round; stroke-width: 9.60426px;" d="M 62.626 457.952 C 64.905 443.388 89.155 358.81 94.476 368.093 C 91.746 369.573 76.356 346.745 63.24 337.864" transform="matrix(-1, 0, 0, -1, 157.101997, 795.81601)" id="leg3">
+    <path style="fill: none; stroke: rgb(101, 87, 87); stroke-linecap: round; stroke-linejoin: round; vector-effect: non-scaling-stroke; stroke-width: 10px;" d="M 62.626 457.952 C 64.905 443.388 89.155 358.81 94.476 368.093 C 91.746 369.573 76.356 346.745 63.24 337.864" transform="matrix(-1, 0, 0, -1, 157.101997, 795.81601)" id="leg3">
       <title>Leg</title>
     </path>
-    <path d="M 362.126 87.84 C 364.1 90.384 365.498 93.644 367.309 96.118 C 370.825 100.921 359.855 97.117 356.699 96.091" style="stroke: rgb(101, 87, 87); stroke-linejoin: round; stroke-width: 9.60426px; fill: none; stroke-linecap: round;" transform="matrix(-1, -0.000051, 0.000041, -1, 728.496696, 193.960324)">
+    <path d="M 362.126 87.84 C 364.1 90.384 365.498 93.644 367.309 96.118 C 370.825 100.921 359.855 97.117 356.699 96.091" style="stroke: rgb(101, 87, 87); stroke-linejoin: round; fill: none; stroke-linecap: round; vector-effect: non-scaling-stroke; stroke-width: 10px;" transform="matrix(-1, -0.000051, 0.000041, -1, 728.496696, 193.960324)">
       <title>Eye</title>
     </path>
-    <path style="fill: none; stroke: rgb(101, 87, 87); stroke-linecap: round; stroke-linejoin: round; stroke-width: 9.60426px;" d="M 442.585 381.335 C 428.491 288.826 396.875 232.806 370.54 216.706 C 358.236 206.193 321.431 197.776 301.699 215.832" transform="matrix(-1, 0, 0, -1, 756.660431, 478.798233)" id="tusk">
+    <path style="fill: none; stroke: rgb(101, 87, 87); stroke-linecap: round; stroke-linejoin: round; vector-effect: non-scaling-stroke; stroke-width: 10px;" d="M 442.585 381.335 C 428.491 288.826 396.875 232.806 370.54 216.706 C 358.236 206.193 321.431 197.776 301.699 215.832" transform="matrix(-1, 0, 0, -1, 756.660431, 478.798233)" id="tusk">
       <title>Tusk</title>
     </path>
   </g>

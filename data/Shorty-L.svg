@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <g style="" transform="matrix(-3.166271, 0, 0, 0.983845, 536.669189, 0.337934)">
+    <title>Shorty</title>
+    <path style="fill: none; stroke-width: 14px; stroke: rgb(94, 98, 101); stroke-linecap: round; stroke-linejoin: round; vector-effect: non-scaling-stroke;" d="M 111.071 222.799 C 176.652 212.655 160.433 358.976 149.452 364.343 C 130.851 373.434 90.422 345.576 84.714 324.067 C 70.523 300.767 83.56 227.054 111.071 222.799 Z">
+      <title>Body</title>
+    </path>
+    <path style="fill: none; stroke-width: 14px; stroke: rgb(94, 98, 101); stroke-linecap: round; stroke-linejoin: round; vector-effect: non-scaling-stroke;" d="M 113.018 477.645 C 119.634 487.474 149.952 501.216 145.647 494.402 C 141.536 495.478 121.516 332.533 120.354 331.898">
+      <title>LEg</title>
+    </path>
+    <path style="fill: none; stroke-width: 14px; stroke: rgb(94, 98, 101); stroke-linecap: round; stroke-linejoin: round; vector-effect: non-scaling-stroke;" d="M 30.711 480.995 C 26.274 477.194 92.443 328.567 100.131 335.153">
+      <title>Leg</title>
+    </path>
+    <path style="fill: none; stroke-width: 14px; stroke: rgb(94, 98, 101); stroke-linecap: round; stroke-linejoin: round; vector-effect: non-scaling-stroke;" d="M 14.817 454.318 C 61.838 376.359 99.65 255.022 99.65 243.787">
+      <title>Rope</title>
+    </path>
+    <path style="fill: none; stroke-width: 14px; stroke: rgb(94, 98, 101); stroke-linecap: round; stroke-linejoin: round; vector-effect: non-scaling-stroke;" d="M 99.156 207.03 C 86.642 184.002 92.086 109.5 122.347 108.713 C 154.113 110.83 152.18 214.832 145.318 214.34 C 138.956 226.092 134.846 232.138 118.111 228.64 C 105.795 220.068 102.42 220.666 99.156 207.03 Z">
+      <title>Head</title>
+    </path>
+    <path style="fill: none; stroke-width: 14px; stroke: rgb(94, 98, 101); stroke-linecap: round; stroke-linejoin: round; vector-effect: non-scaling-stroke;" d="M 20.717 154.276 C 30.301 152.054 149.281 105.528 164.816 102.477">
+      <title>Hat Rim</title>
+    </path>
+    <path style="fill: none; stroke-width: 14px; stroke: rgb(94, 98, 101); stroke-linecap: round; stroke-linejoin: round; vector-effect: non-scaling-stroke;" d="M 87.761 126.753 C 68.857 120.388 68.584 21.569 107.258 20.919 C 128.894 20.555 180.219 98.768 154.919 105.434 L 87.761 126.753 Z">
+      <title>Hat Top</title>
+    </path>
+    <path d="M 110.366 139.235 C 110.366 149.782 108.251 159.132 108.251 169.821" style="fill: none; stroke-width: 11px; stroke: rgb(94, 98, 101); stroke-miterlimit: 11; stroke-linecap: round; stroke-linejoin: round; vector-effect: non-scaling-stroke;">
+      <title>Face</title>
+    </path>
+    <path d="M 124.815 139.61 C 124.815 148.479 124.485 157.991 124.485 166.346" style="fill: none; stroke-width: 11px; stroke: rgb(94, 98, 101); stroke-miterlimit: 11; stroke-linecap: round; stroke-linejoin: round; vector-effect: non-scaling-stroke;">
+      <title>Face</title>
+    </path>
+    <path d="M 105.23 190.434 C 114.703 195.04 139.51 201.962 139.51 186.326" style="fill: none; stroke-width: 11px; stroke: rgb(94, 98, 101); stroke-miterlimit: 11; stroke-linecap: round; stroke-linejoin: round; vector-effect: non-scaling-stroke;">
+      <title>Face</title>
+    </path>
+  </g>
+</svg>

@@ -22,11 +22,6 @@ class Elephant {
     if (_previousDirection == LEFT) {
       svg = elephantL;
     }
-
-    svg.disableStyle();
-    noFill();
-    color(config.elephantStrokeColor);
-    strokeWeight(config.elephantStrokeWeight);
     shape(svg, _x, _y, config.elephantSize, config.elephantSize);
   }
 
