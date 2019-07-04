@@ -7,6 +7,7 @@ Info info = new Info();
 
 void setup() {
   size(1000, 750);
+  frameRate(16);
   elephant = new Elephant();
   poops = new PoopSet();
 }
@@ -16,6 +17,15 @@ void draw() {
   poops.draw();
   info.draw();
   elephant.draw();
+
+
+  /*
+   * Debug
+   */
+  if (config.debug) {
+    line(0, config.elephantYMin, width, config.elephantYMin);
+    line(0, config.elephantYMax, width, config.elephantYMax);
+  }
 }
 
 void keyPressed() {

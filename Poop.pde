@@ -33,10 +33,10 @@ class Poop {
       ellipse(_x, _y, config.poopSize * 2, config.poopSize / 2);
     } else {    
       _y = _y + config.poopSpeed + _distance;
-      _y = min(_y, config.poopYStop);
+      _y = min(_y, config.poopYDistance);
       ellipse(_x, _y, config.poopSize, config.poopSize);
 
-      if (_y < config.poopYStop) {
+      if (_y < config.poopYDistance) {
         _distance += 1;
         _distance += _distance * config.distanceAccelerator;
       } else {

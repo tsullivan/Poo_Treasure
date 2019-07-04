@@ -1,5 +1,5 @@
 class PoopSet {
-  ArrayList<Poop> _poops = new ArrayList<Poop>();
+  private ArrayList<Poop> _poops = new ArrayList<Poop>();
   private int _lastPoop = 0;
 
   int size() {
@@ -10,12 +10,12 @@ class PoopSet {
     return _poops.get(idx);
   }
 
-  void add(int x) {
+  void add(int x, int y) {
     if (millis() - _lastPoop < config.poopThrottle) { 
       return; // throttle the poops
     }
 
-    _poops.add(new Poop(x));
+    _poops.add(new Poop(x, y));
     _lastPoop = millis();
   }
 

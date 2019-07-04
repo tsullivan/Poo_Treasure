@@ -14,25 +14,29 @@ class Keyboard {
     case RIGHT:
       elephant.moveRight();
       return;
+    case UP:
+      elephant.moveUp();
+      return;
+    case DOWN:
+      elephant.moveDown();
+      return;
     case ENTER:
       elephant.poop(poops);
       return;
-    default:
-      if (config.debug) { // test debug
-        checkDebugs();
-      } else if (key == '?') { // toggle debug
-        config.debug = !config.debug;
-        println("Debug: " + config.debug);
-      }
-    }
-  }
+    }      
 
-  void checkDebugs() {
-    if (keyCode == UP) {
-      config.poopXOffset += 1;
-    } else if (keyCode == DOWN) {
-      config.poopXOffset -= 1;
+    if (key == '?') { // toggle debug
+      config.debug = !config.debug;
+      println("Debug: " + config.debug);
     }
-    println("poopXOffset: " + config.poopXOffset);
+    
+    if (config.debug) {
+      if (key == 'u') {
+        config.elephantYMax = config.elephantYMax - 1;
+      }
+      if (key == 'd') {
+        config.elephantYMax = config.elephantYMax + 1;
+      }println("config.elephantYMax: " + config.elephantYMax);
+    }
   }
 }
