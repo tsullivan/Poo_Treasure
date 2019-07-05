@@ -28,15 +28,6 @@ void draw() {
   elephant.draw();
   shorty.draw();
   guys.draw();
-
-  /*
-   * Debug
-   */
-  if (config.debug) {
-    strokeWeight(1);
-    line(0, config.elephantYMin, width, config.elephantYMin);
-    line(0, config.elephantYMax, width, config.elephantYMax);
-  }
 }
 
 void keyPressed() {
@@ -56,6 +47,5 @@ PShape cleanShape(PShape svg, color stroke, float scaleFactor) {
   noFill();
   strokeWeight(10 * scaleFactor);
   stroke(stroke); 
-
   return svg;
 }

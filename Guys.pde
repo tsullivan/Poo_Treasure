@@ -1,5 +1,3 @@
- //<>// //<>// //<>// //<>//
-
 class GuySet {
   private ArrayList<Guy> _guys = new ArrayList<Guy>();
   private int _lastGuy = 0;
