@@ -29,7 +29,7 @@ class GuySet {
 
     for (int i = 0; i < _guys.size(); i++) {
       Guy gi = get(i);
-      if (gi.isDead) {
+      if (gi.isDead()) {
         _guys.remove(i);
       } else {
         gi.draw();
@@ -43,6 +43,7 @@ class GuySet {
       Guy gi = get(i);
       if (gi.isHitBy(p)) {
         gi.stickPoop(p);
+        p.stickGuy(gi);
         gs.add(gi);
       };
     }

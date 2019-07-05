@@ -22,11 +22,11 @@ class PoopSet {
   void draw() {
     for (int i = 0; i < _poops.size(); i++) {
       Poop pi = get(i);
-      if (!pi.isSplatted()) {
+      if (!pi.isSplatted() && !pi.isStuck()) {
         guys.findHitGuys(pi);
       }
 
-      if (pi.isDead) {
+      if (pi.isDead()) {
         _poops.remove(i);
       } else {
         pi.draw();

@@ -15,7 +15,7 @@ class Config {
   float elephantScaleFactor = 1.0;
   int elephantXMargin = 110;
   int elephantYMin = 1;
-  int elephantYMax = 370;
+  int elephantYMax = 420;
   int elephantSize = 225;
   int elephantSpeed = 1;
   int elephantSlownessInverter = 250000;
@@ -27,6 +27,7 @@ class Config {
   int poopXStartOffset = 10;
   int poopYDistance = 685;
   int poopSize = 32;
+  int poopHitBuffer = 1;
   int poopExplodingTime = 5000;
   int poopExplodedTime = 7000;
   int poopThrottle = 428;  
@@ -44,8 +45,8 @@ class Config {
   int guyRate = 400;
   int guySpeed = 12;
   int guyStartX = -200;
-  int guyEndX = 800;
-  int guyStartY = 620;
+  int guyEndX = 1200;
+  int guyStartY = 520;
 
   int alexWidth = 133;
   int alexHeight = 120;

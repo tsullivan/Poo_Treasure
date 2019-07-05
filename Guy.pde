@@ -8,7 +8,7 @@ class Guy {
   private int _width;
   private int _height;
   private float _centerXOffset;
-  public boolean isDead = false;
+  private boolean _isDead = false;
 
   Guy(PShape tempSvg, int tempX, int tempY, color tempStrokeColor, float tempScaleFactor, int tempWidth, int tempHeight, float tempCenterXOffset) {
     _svg = tempSvg;
@@ -23,7 +23,7 @@ class Guy {
 
   void draw() {
     if (_distance > config.guyEndX) {
-      isDead = true;
+      _isDead = true;
       return;
     }
 
@@ -31,10 +31,6 @@ class Guy {
     _x = floor(_x + config.guySpeed);
     _svg = cleanShape(_svg, _strokeColor, _scaleFactor);
     shape(_svg, _x, _y, _width, _height);
-    
-    if (config.debug) {
-      rect(_x, _y, _width, _height);
-    }
   }
 
   int getCenterX() {
@@ -46,16 +42,35 @@ class Guy {
   }
 
   boolean isHitBy(Poop p) {
+    float pMinX = p.getMinX();
+    float pMaxX = p.getMaxX();
+    float pMaxY = p.getMaxY();
+    
     if (config.debug) {
-      line(this.getCenterX(), _y, p.getCenterX(), p.getY());
+      float pCenterX = p.getCenterX();
+      stroke(200, 200, 0);
+      strokeWeight(3);
+      line(pCenterX, pMaxY, getCenterX(), _y - config.poopHitBuffer);
+      line(pMinX, pMaxY, pMaxX, pMaxY);
+      line(_x - config.poopHitBuffer,  _y - config.poopHitBuffer, _x + _width + (config.poopHitBuffer * 2),  _y - config.poopHitBuffer);
     }
-    int xDelta = p.getCenterX() - _x;
-    return abs(xDelta) <= 20 && p.getY() >= _y;
+    
+    if (_x - config.poopHitBuffer <= pMinX) { // x1
+      if (_x + _width + (config.poopHitBuffer * 2) >= pMaxX) { // x2
+        if ( _y - config.poopHitBuffer <= pMaxY) { // y1 & y2
+          return true;
+        }
+      }
+    }
+    return false;
+  }
+  
+  boolean isDead() {
+    return _isDead;
   }
 
   void stickPoop(Poop p) {
-    println("got it stuck!");
-    println(this);
-    println(p);
+    /* make the person have a sad face on */
+    /* make them walk to the defeat box */
   }
 }
