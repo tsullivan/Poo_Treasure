@@ -1,3 +1,6 @@
+
+
+
 class Poop {
   private int _x;
   private float _y;
@@ -46,37 +49,16 @@ class Poop {
       }
     }
   }
-}
 
-class PoopSet {
-  private ArrayList<Poop> _poops = new ArrayList<Poop>();
-  private int _lastPoop = 0;
-
-  int size() {
-    return _poops.size();
+  boolean isSplatted() {
+    return _isSplatted;
   }
 
-  Poop get(int idx) {
-    return _poops.get(idx);
+  int getCenterX() {
+    return _x;
   }
 
-  void add(int x, int y) {
-    if (!config.debug && millis() - _lastPoop < config.poopThrottle) { 
-      return; // throttle the poops
-    }
-
-    _poops.add(new Poop(x, y));
-    _lastPoop = millis();
-  }
-
-  void draw() {
-    for (int i = 0; i < _poops.size(); i++) {
-      Poop pi = get(i);
-      if (pi.isDead) {
-        _poops.remove(i);
-      } else {
-        pi.draw();
-      }
-    }
+  float getY() {
+    return _y;
   }
 }

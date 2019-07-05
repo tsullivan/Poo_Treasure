@@ -1,24 +1,4 @@
-class Guy {
-  private int _x = config.shortyXMargin + 200;
-  private int _y = config.shortyYMin;
-  private PShape _svg;
-  private float _scaleFactor = 1.0;
-  private float _size;
-  private boolean _isConnected = false; // to poop
-
-  public boolean isDead;
-
-  Guy(PShape tempSvg, float tempScaleFactor, float tempSize) {
-    _svg = tempSvg;
-    _scaleFactor = tempScaleFactor;
-    _size = tempSize;
-  }
-
-  void draw() {
-    _x = _x + 1;
-    shape(_svg, _x, _y, _size, _size);
-  }
-}
+ //<>// //<>// //<>// //<>//
 
 class GuySet {
   private ArrayList<Guy> _guys = new ArrayList<Guy>();
@@ -32,26 +12,40 @@ class GuySet {
     return _guys.get(idx);
   }
 
-  void add(int x, int y) {
+  void add() {
+    // TODO pick aweighted random params
     PShape svg = loadShape("Alex.svg");
-    Guy newGuy = new Guy(svg, 1, 100);
+    color alexColor = color(config.alexR, config.alexG, config.alexB);
+    Guy newGuy = new Guy(svg, config.guyStartX, config.guyStartY, alexColor, config.alexScaleFactor, config.alexWidth, config.alexHeight, config.alexCenterXOffset);
     _guys.add(newGuy);
     _lastGuy = millis();
   }
 
   void draw() {
-    if (_guys.size() <= 0 && millis() - _lastGuy > 2000) {
+    if (_guys.size() <= 0 && millis() - _lastGuy > config.guyRate) {
       // check the timelast and add a guy
-      add(10, 10);
+      add();
     }
 
-    for (int i = 0; i < _guys.size(); i++) { //<>//
-      Guy pi = get(i);
-      if (pi.isDead) {
+    for (int i = 0; i < _guys.size(); i++) {
+      Guy gi = get(i);
+      if (gi.isDead) {
         _guys.remove(i);
       } else {
-        pi.draw();
+        gi.draw();
       }
     }
+  }
+
+  ArrayList<Guy> findHitGuys(Poop p) {
+    ArrayList<Guy> gs = new ArrayList<Guy>();
+    for (int i = 0; i < _guys.size(); i++) {
+      Guy gi = get(i);
+      if (gi.isHitBy(p)) {
+        gi.stickPoop(p);
+        gs.add(gi);
+      };
+    }
+    return gs;
   }
 }

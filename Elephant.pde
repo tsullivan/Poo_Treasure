@@ -1,26 +1,23 @@
 class Elephant {
-  private short LEFT = 0x0;
-  private short RIGHT = 0x1;
-  private short UP = 0x2;
-  private short DOWN = 0x3;
+  private PShape _svgR;
+  private PShape _svgL;
 
   private short _previousDirection = -1;
   private int _x = config.elephantSize + config.elephantXMargin;
   private int _y = config.elephantYMin;
   private int _lastMove = 0;
 
-  private PShape elephantR;
-  private PShape elephantL;
-
   Elephant() {
-    elephantR = loadShape("Elephant-R.svg");
-    elephantL = loadShape("Elephant-L.svg");
+    _svgR = loadShape("Elephant-R.svg");
+    _svgL = loadShape("Elephant-L.svg");
   }
 
   void draw() {
-    PShape svg = elephantR;
-    if (_previousDirection == LEFT) {
-      svg = elephantL;
+    PShape svg;
+    if (_previousDirection == PT_LEFT) {
+      svg = cleanShape(_svgL, config.elephantStrokeColor, config.elephantScaleFactor);
+    } else {
+      svg = cleanShape(_svgR, config.elephantStrokeColor, config.elephantScaleFactor);
     }
     shape(svg, _x, _y, config.elephantSize, config.elephantSize);
   }
@@ -38,30 +35,30 @@ class Elephant {
   }
 
   void moveLeft() {
-    _x = max(_x - ceil(getSpeed(LEFT)), config.elephantXMargin);
-    _previousDirection = LEFT;
+    _x = max(_x - ceil(getSpeed(PT_LEFT)), config.elephantXMargin);
+    _previousDirection = PT_LEFT;
   }
 
   void moveRight() {
-    _x = min(_x + ceil(getSpeed(RIGHT)), width - config.elephantXMargin);
-    _previousDirection = RIGHT;
+    _x = min(_x + ceil(getSpeed(PT_RIGHT)), width - config.elephantXMargin);
+    _previousDirection = PT_RIGHT;
   }
 
   void moveUp() {
-    _y = max(_y - ceil(getSpeed(UP)), config.elephantYMin);
-    _previousDirection = UP;
+    _y = max(_y - ceil(getSpeed(PT_UP)), config.elephantYMin);
+    _previousDirection = PT_UP;
   }
 
   void moveDown() {
-    _y = min(_y + ceil(getSpeed(DOWN)), config.elephantYMax);
-    _previousDirection = DOWN;
+    _y = min(_y + ceil(getSpeed(PT_DOWN)), config.elephantYMax);
+    _previousDirection = PT_DOWN;
   }
 
   void poop(PoopSet p1) {
     int x = _x + config.poopXStartOffset;
     int y = _y;
 
-    if (_previousDirection == LEFT) {
+    if (_previousDirection == PT_LEFT) {
       x = _x + config.elephantSize - config.poopXStartOffset;
     }
     p1.add(x, y);

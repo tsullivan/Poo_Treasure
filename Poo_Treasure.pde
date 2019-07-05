@@ -1,3 +1,8 @@
+short PT_LEFT = 0x0;
+short PT_RIGHT = 0x1;
+short PT_UP = 0x2;
+short PT_DOWN = 0x3;
+
 Elephant elephant;
 Shorty shorty;
 GuySet guys;
@@ -13,6 +18,7 @@ void setup() {
   elephant = new Elephant();
   poops = new PoopSet();
   shorty = new Shorty();
+  guys = new GuySet();
 }
 
 void draw() {
@@ -43,4 +49,13 @@ void keyPressed() {
  */
 boolean flash(int mTime) {
   return (mTime / 200) % 2 > 0;
+}
+
+PShape cleanShape(PShape svg, color stroke, float scaleFactor) {
+  svg.disableStyle();
+  noFill();
+  strokeWeight(10 * scaleFactor);
+  stroke(stroke); 
+
+  return svg;
 }

@@ -31,13 +31,7 @@ class Keyboard {
     }
 
     if (config.debug) {
-      if (key == 'x') {
-        config.shortySize = config.shortySize - 1;
-      }
-      if (key == 'X') {
-        config.shortySize = config.shortySize + 1;
-      }
-      println("Short size: " + config.shortySize);
+      checkConfigDebug();
     }
   }
 }

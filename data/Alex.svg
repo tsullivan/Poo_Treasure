@@ -16,11 +16,15 @@
     <path d="M 185.156 249.933 C 170.116 249.933 17.231 284.2 10.779 290.59" style="stroke: black; fill: none; stroke-linecap: round; vector-effect: non-scaling-stroke; stroke-width: 10px;">
       <title>Arm L</title>
     </path>
-    <path d="M 286.435 149.863 C 296.057 129.728 292.676 68.853 290.75 59.633 C 287.622 44.658 260.521 23.274 247.415 20.536 C 244.244 19.874 201.857 42.268 197.807 50.572 C 186.143 74.484 189.855 120.919 203.157 157.206" style="stroke: black; fill: none; stroke-linecap: round; vector-effect: non-scaling-stroke; stroke-width: 10px;">
+    <path d="M 286.435 149.863 C 296.057 129.728 292.676 68.853 290.75 59.633 C 287.622 44.658 260.521 23.274 247.415 20.536 C 244.244 19.874 201.857 42.268 197.807 50.572 C 186.143 74.484 189.855 120.919 203.157 157.206" style="stroke: black; stroke-linecap: round; fill: none; stroke-width: 8px;">
       <title>Head</title>
     </path>
-    <path d="M 206.7 95.668 C 235.009 138.513 247.577 120.767 268.231 87.083" style="stroke: black; fill: none; stroke-linecap: round; vector-effect: non-scaling-stroke; stroke-width: 10px;"/>
-    <path d="M 231.763 65.176 C 227.325 64.354 221.977 63.709 217.539 63.075" style="stroke: black; fill: none; stroke-linecap: round; vector-effect: non-scaling-stroke; stroke-width: 10px;"/>
-    <path d="M 256.591 62.657 C 259.973 62.296 265.142 57.902 266.642 57.149" style="stroke: black; fill: none; stroke-linecap: round; vector-effect: non-scaling-stroke; stroke-width: 10px;"/>
+    <path d="M 206.7 95.668 C 235.009 138.513 247.577 120.767 268.231 87.083" style="stroke: black; stroke-linecap: round; fill: none; stroke-width: 8px;"/>
+    <path d="M 231.763 65.176 C 227.325 64.354 221.977 63.709 217.539 63.075" style="stroke: black; stroke-linecap: round; fill: none; stroke-width: 8px;"/>
+    <path d="M 256.591 62.657 C 259.973 62.296 265.142 57.902 266.642 57.149" style="stroke: black; stroke-linecap: round; fill: none; stroke-width: 8px;"/>
+    <path style="stroke: rgb(0, 0, 0); fill: none; stroke-width: 8px;" d="M 256.444 17.346 L 187.449 71.885"/>
+    <path style="stroke: rgb(0, 0, 0); fill: none; stroke-width: 8px;" d="M 230.298 18.63 L 299.118 59.679"/>
   </g>
+  <path style="fill: none; stroke: rgb(0, 0, 0); stroke-linecap: round; stroke-width: 10px; vector-effect: non-scaling-stroke;" d="M 223.962 73.589 L 222.79 78.617"/>
+  <path style="fill: none; stroke: rgb(0, 0, 0); stroke-linecap: round; stroke-width: 10px; vector-effect: non-scaling-stroke;" d="M 263.919 69.449 L 261.184 72.929"/>
 </svg>
