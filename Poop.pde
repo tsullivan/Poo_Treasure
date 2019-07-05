@@ -7,49 +7,61 @@ class Poop {
 
   private boolean _isDead = false;
   private boolean _isStuck = false;
-
+  private float _stuckDeltaX;
+  private float _stuckDeltaY;
   private Guy _stuckGuy;
 
   Poop(int tempX, int tempY) {
     _x = tempX;
-    _y = tempY + config.poopYStartOffset;
+    _y = tempY + config.poopStartOffsetY;
     _birthTime = millis();
   }
 
+  boolean checkDraw() {
+    if (_isStuck) {
+      return true;
+    }
+    
+    int ageSeconds = millis() - _birthTime;
+    
+    // garbage collection
+    if (ageSeconds > config.poopExplodedTime) {
+      _isDead = true;
+      return false;
+    }
+    
+    // blink
+    if (ageSeconds > config.poopExplodingTime && flash(millis())) {
+      return false;
+    }
+
+    return true;
+  }
+
   void draw() {
-    if (!config.debug) {
-      int ageSeconds = millis() - _birthTime;
-
-      if (ageSeconds > config.poopExplodedTime) {
-        _isDead = true;
-        return;
-      }
-
-      if (!_isStuck && ageSeconds > config.poopExplodingTime) { // blink
-        if (flash(millis())) {
-          return;
-        }
-      }
+    if (!checkDraw() && !config.debug) {
+      return;
     }
 
     fill(config.poopColor);
-    strokeWeight(0);
+    stroke(config.poopColor);
+    strokeWeight(10);
 
     if (_isStuck) {
-      ellipse(_stuckGuy.getCenterX(), _stuckGuy.getY(), config.poopSize * 2, config.poopSize / 2);
+      ellipse(_stuckGuy.getCenterX() + _stuckDeltaX, _stuckGuy.getY() + _stuckDeltaY, config.poopSize * 2, config.poopSize / 2);
       return;
     }
     if (_isSplatted) {
       ellipse(_x, _y, config.poopSize * 2, config.poopSize / 2);
       return;
-    } 
+    }
+
     _y = _y + config.poopSpeed + _distance;
-    _y = min(_y, config.poopYDistance);
+    _y = min(_y, config.poopStopY);
     ellipse(_x, _y, config.poopSize, config.poopSize);
 
-    if (_y < config.poopYDistance) {
-      _distance += 1;
-      _distance += _distance * config.distanceAccelerator;
+    if (_y < config.poopStopY) {
+      _distance += 1 + _distance * config.poopYAccelerator;
     } else {
       _isSplatted = true;
     }
@@ -90,5 +102,7 @@ class Poop {
   void stickGuy(Guy g) {
     _isStuck = true;
     _stuckGuy = g;
+    _stuckDeltaX = _x - g.getCenterX();
+    _stuckDeltaY = _y - g.getY();
   }
 }

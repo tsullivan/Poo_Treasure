@@ -5,7 +5,6 @@ class Config {
   int strokeWeight = 8;
   int textMargin = 10;
   color backGround = 126;
-  float distanceAccelerator = 1.05;
 
   int infoTimeout = 7000;
   int infoFlashTime = 5550;
@@ -13,25 +12,28 @@ class Config {
   color elephantFillColor = color(165, 157, 157);
   color elephantStrokeColor = color(98, 84, 84);
   float elephantScaleFactor = 1.0;
-  int elephantXMargin = 110;
-  int elephantYMin = 1;
-  int elephantYMax = 420;
+  int elephantMinX = 10;
+  int elephantMaxX = 781;
+  int elephantMinY = 1;
+  int elephantMaxY = 450;
   int elephantSize = 225;
   int elephantSpeed = 1;
-  int elephantSlownessInverter = 250000;
-  int elephantMaxSpeed = 9;
-  int elephantAccelerationTimeout = 110;
-  float elephantAccelerator = 1.1;
+  float elephantMaxXSpeed = 11;
+  float elephantMaxYSpeed = 15;
+  int elephantAccelerationTimeout = 480;
+  float elephantXAccelerator = 0.5;
+  float elephantYAccelerator = 1;
 
-  int poopYStartOffset = 85;
-  int poopXStartOffset = 10;
-  int poopYDistance = 685;
+  int poopStartOffsetY = 85;
+  int poopStartOffsetX = 10;
+  int poopStopY = 685;
   int poopSize = 32;
-  int poopHitBuffer = 1;
+  int poopHitBuffer = -5;
   int poopExplodingTime = 5000;
   int poopExplodedTime = 7000;
   int poopThrottle = 428;  
   float poopSpeed = 1.35;
+  float poopYAccelerator = 0.2;
   color poopColor = color(131, 71, 5);
 
   int shortyWidth = 71;
@@ -47,6 +49,9 @@ class Config {
   int guyStartX = -200;
   int guyEndX = 1200;
   int guyStartY = 520;
+  
+  int retiredStartX = 1200;
+  int retiredStartY = 0;
 
   int alexWidth = 133;
   int alexHeight = 120;
@@ -60,9 +65,9 @@ class Config {
 
 void checkConfigDebug() {
   if (key == 'U') {
-    config.alexCenterXOffset += 0.3;
+    config.poopHitBuffer += 1;
   } else if (key == 'u') {
-    config.alexCenterXOffset -= 0.3;
+    config.poopHitBuffer -= 1;
   }
-  println("alexCenterXOffset: " + config.alexCenterXOffset);
+  println("poopHitBuffer: " + config.poopHitBuffer);
 }

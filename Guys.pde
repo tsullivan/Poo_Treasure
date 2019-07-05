@@ -1,4 +1,4 @@
-class GuySet {
+class GuySet { //<>//
   private ArrayList<Guy> _guys = new ArrayList<Guy>();
   private int _lastGuy = 0;
 
@@ -14,7 +14,7 @@ class GuySet {
     // TODO pick aweighted random params
     PShape svg = loadShape("Alex.svg");
     color alexColor = color(config.alexR, config.alexG, config.alexB);
-    Guy newGuy = new Guy(svg, config.guyStartX, config.guyStartY, alexColor, config.alexScaleFactor, config.alexWidth, config.alexHeight, config.alexCenterXOffset);
+    Guy newGuy = new Guy(svg, alexColor, config.alexScaleFactor, config.alexWidth, config.alexHeight, config.alexCenterXOffset);
     _guys.add(newGuy);
     _lastGuy = millis();
   }
@@ -24,7 +24,6 @@ class GuySet {
       // check the timelast and add a guy
       add();
     }
-
     for (int i = 0; i < _guys.size(); i++) {
       Guy gi = get(i);
       if (gi.isDead()) {
