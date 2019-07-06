@@ -35,6 +35,7 @@ class Guy {
         return false;
       }
     }
+    
     return true;
   }
 
@@ -46,7 +47,7 @@ class Guy {
     }
 
     if (!checkDraw()) {
-      //return;
+      return;
     }
 
     if (_isRetired) {

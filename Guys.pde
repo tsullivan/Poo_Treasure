@@ -7,6 +7,9 @@ class GuySet { //<>//
   }
 
   Guy get(int idx) {
+    if (idx >= _guys.size()) { // a guy died
+      return null;
+    }
     return _guys.get(idx);
   }
 
@@ -20,17 +23,20 @@ class GuySet { //<>//
   }
 
   void draw() {
-    if (_guys.size() <= 0 && millis() - _lastGuy > config.guyRate) {
-      // check the timelast and add a guy
-      add();
-    }
-    for (int i = 0; i < _guys.size(); i++) {
+    int gSize = _guys.size();
+    for (int i = 0; i < gSize; i++) {
       Guy gi = get(i);
       if (gi.isDead()) {
-        _guys.remove(i);
-      } else {
-        gi.draw();
+        _guys.remove(i); // loop will change the actual size
+        i = i - 1;
+        gSize = gSize - 1;
       }
+      gi.draw();
+    }
+
+    if (millis() - _lastGuy > config.guyRate) {
+      // check the timelast and add a guy
+      add();
     }
   }
 

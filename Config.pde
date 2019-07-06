@@ -44,7 +44,7 @@ class Config {
   int shortyYMin = 100;
   color shortyStrokeColor = color(44, 83, 98);
 
-  int guyRate = 400;
+  int guyRate = 2200;
   int guySpeed = 12;
   int guyStartX = -200;
   int guyEndX = 1200;
