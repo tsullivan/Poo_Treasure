@@ -9,7 +9,7 @@ class Poop {
   private boolean _isStuck = false;
   private float _stuckDeltaX;
   private float _stuckDeltaY;
-  private Guy _stuckGuy;
+  private Villain _stuckGuy;
 
   Poop(int tempX, int tempY) {
     _x = tempX;
@@ -99,7 +99,7 @@ class Poop {
     return _y + config.poopSize;
   }
 
-  void stickGuy(Guy g) {
+  void stickGuy(Villain g) {
     _isStuck = true;
     _stuckGuy = g;
     _stuckDeltaX = _x - g.getCenterX();

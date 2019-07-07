@@ -1,4 +1,5 @@
-class Guy {
+class Villain {
+  private float _speed = config.guySpeed;
   private float _distance = 0;
   private int _x;
   private int _y;
@@ -12,7 +13,7 @@ class Guy {
   private boolean _isStuck = false;
   private boolean _isRetired = false;
 
-  Guy(PShape tempSvg, color tempStrokeColor, float tempScaleFactor, int tempWidth, int tempHeight, float tempCenterXOffset) {
+  Villain(PShape tempSvg, color tempStrokeColor, float tempScaleFactor, int tempWidth, int tempHeight, float tempCenterXOffset) {
     _svg = tempSvg;
     _strokeColor = tempStrokeColor;
     _scaleFactor = tempScaleFactor;
@@ -35,7 +36,7 @@ class Guy {
         return false;
       }
     }
-    
+
     return true;
   }
 
@@ -53,8 +54,12 @@ class Guy {
     if (_isRetired) {
       _x = floor(_x - config.guySpeed);
     } else {
-      _distance += config.guySpeed;
-      _x = floor(_x + config.guySpeed);
+      _speed = min(_speed * config.guyAcceleratorX, config.guyMaxSpeed);
+      _distance += _speed;
+      if (config.debug) {
+        println("speed: " + _speed + " " + this);
+      }
+      _x = floor(_x + _speed);
     }
 
     _svg = cleanShape(_svg, _strokeColor, _scaleFactor);
@@ -81,15 +86,15 @@ class Guy {
     if (config.debug) {
       stroke(200, 0, 200);
       strokeWeight(1);
-      line(p.getCenterX(), pMaxY, getCenterX(), _y - config.poopHitBuffer); // poop to guy line
-      line(_x - config.poopHitBuffer, _y - config.poopHitBuffer, _x + _width + config.poopHitBuffer, _y - config.poopHitBuffer); // top line
-      line(_x - config.poopHitBuffer, _y - config.poopHitBuffer, _x - config.poopHitBuffer, config.poopStopY); // left edge
-      line(_x + _width + config.poopHitBuffer, _y - config.poopHitBuffer, _x + _width + config.poopHitBuffer, config.poopStopY); // right edge
+      line(p.getCenterX(), pMaxY, getCenterX(), _y - config.poopHitBufferY); // poop to guy line
+      line(_x - config.poopHitBufferX, _y - config.poopHitBufferY, _x + _width + config.poopHitBufferX, _y - config.poopHitBufferY); // top line
+      line(_x - config.poopHitBufferX, _y - config.poopHitBufferX, _x - config.poopHitBufferX, config.poopStopY); // left edge
+      line(_x + _width + config.poopHitBufferX, _y - config.poopHitBufferX, _x + _width + config.poopHitBufferX, config.poopStopY); // right edge
     }
 
-    if (_x - config.poopHitBuffer <= pMinX) { // x1
-      if (_x + _width + config.poopHitBuffer >= pMaxX) { // x2
-        if ( _y - config.poopHitBuffer <= pMaxY) { // y1 & y2
+    if (_x - config.poopHitBufferX <= pMinX) { // x1
+      if (_x + _width + config.poopHitBufferX >= pMaxX) { // x2
+        if ( _y - config.poopHitBufferY <= pMaxY) { // y1 & y2
           return true;
         }
       }
@@ -104,4 +109,14 @@ class Guy {
   void stickPoop(Poop p) {
     _isStuck = true;
   }
+}
+
+Villain getVillainAlex() {  
+  int alexWidth = 133;
+  int alexHeight = 120;
+  float alexScaleFactor = 1.2;
+  float alexCenterXOffset = 1.15;
+  color alexStrokeColor = color(44, 83, 98);
+  
+  return new Villain(loadShape("Alex.svg"), alexStrokeColor, alexScaleFactor, alexWidth, alexHeight, alexCenterXOffset);
 }

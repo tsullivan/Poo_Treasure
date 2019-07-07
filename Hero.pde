@@ -1,4 +1,4 @@
-class Shorty {
+class Hero {
   private int _x = config.shortyXMargin;
   private int _y = config.shortyYMin;
   private PShape _svgL;
@@ -7,10 +7,9 @@ class Shorty {
 
   //private boolean _isConnected; // to the eleph
 
-
-  Shorty() {
-    _svgL = loadShape("Shorty-L.svg");
-    _svgR = loadShape("Shorty-R.svg");
+  Hero(PShape tempSvgL, PShape tempSvgR) {
+    _svgL = tempSvgL;
+    _svgR = tempSvgR;
   }
 
   void draw() {
@@ -21,5 +20,23 @@ class Shorty {
       svg = cleanShape(_svgR, config.shortyStrokeColor, config.shortyScaleFactor);
     }
     shape(svg, _x, _y, config.shortyWidth, config.shortyHeight);
+  }
+}
+
+class Shorty extends Hero {
+  Shorty() {
+    super(loadShape("Shorty-L.svg"), loadShape("Shorty-R.svg"));
+  }
+}
+
+class Batman extends Hero {
+  Batman() {
+    super(loadShape("Batman.svg"), loadShape("Batman.svg"));
+  }
+}
+
+class Robin extends Hero {
+  Robin() {
+    super(loadShape("Robin.svg"), loadShape("Robin.svg"));
   }
 }

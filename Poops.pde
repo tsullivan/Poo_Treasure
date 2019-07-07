@@ -23,7 +23,7 @@ class PoopSet {
     for (int i = 0; i < _poops.size(); i++) {
       Poop pi = get(i);
       if (!pi.isSplatted() && !pi.isStuck()) {
-        guys.findHitGuys(pi);
+        villains.findHitGuys(pi);
       }
 
       if (pi.isDead()) {

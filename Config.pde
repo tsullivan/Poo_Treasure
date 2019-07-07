@@ -28,7 +28,8 @@ class Config {
   int poopStartOffsetX = 10;
   int poopStopY = 685;
   int poopSize = 32;
-  int poopHitBuffer = -5;
+  int poopHitBufferX = -5;
+  int poopHitBufferY = -24;
   int poopExplodingTime = 5000;
   int poopExplodedTime = 7000;
   int poopThrottle = 428;  
@@ -44,30 +45,25 @@ class Config {
   int shortyYMin = 100;
   color shortyStrokeColor = color(44, 83, 98);
 
-  int guyRate = 2200;
-  int guySpeed = 12;
+  int guyRate = 1800;
+  int guySpeed = 1;
+  float guyAcceleratorX = 1.05;
+  float guyAcceleratorY = 1;
+  float guyMaxSpeed = 19;
   int guyStartX = -200;
   int guyEndX = 1200;
   int guyStartY = 520;
-  
+
   int retiredStartX = 1200;
   int retiredStartY = 0;
 
-  int alexWidth = 133;
-  int alexHeight = 120;
-  float alexScaleFactor = 1.2;
-  float alexCenterXOffset = 1.15;
-  int alexR = 44;
-  int alexG = 83;
-  int alexB = 98;
-  color alexStrokeColor = color(alexR, alexG, alexB);
 }
 
 void checkConfigDebug() {
   if (key == 'U') {
-    config.poopHitBuffer += 1;
+    config.guyMaxSpeed += 0.2;
   } else if (key == 'u') {
-    config.poopHitBuffer -= 1;
+    config.guyMaxSpeed -= 0.2;
   }
-  println("poopHitBuffer: " + config.poopHitBuffer);
+  println("guyMaxSpeed: " + config.guyMaxSpeed);
 }

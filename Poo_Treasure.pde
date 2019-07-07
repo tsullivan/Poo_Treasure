@@ -4,8 +4,8 @@ short PT_UP = 0x2;
 short PT_DOWN = 0x3;
 
 Elephant elephant;
-Shorty shorty;
-GuySet guys;
+HeroSet heroes;
+VillainSet villains;
 PoopSet poops;
 
 Config config = new Config();
@@ -17,8 +17,8 @@ void setup() {
   frameRate(16);
   elephant = new Elephant();
   poops = new PoopSet();
-  shorty = new Shorty();
-  guys = new GuySet();
+  heroes = new HeroSet();
+  villains = new VillainSet();
 }
 
 void draw() {
@@ -26,8 +26,8 @@ void draw() {
   poops.draw();
   info.draw();
   elephant.draw();
-  shorty.draw();
-  guys.draw();
+  heroes.draw();
+  villains.draw();
 }
 
 void keyPressed() {

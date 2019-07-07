@@ -14,7 +14,6 @@ class Elephant {
   }
 
   void draw() {
-
     if (config.debug) {
       stroke(config.elephantStrokeColor);
       strokeWeight(1);
