@@ -2,9 +2,17 @@ class HeroSet {
   private ArrayList<Hero> _heroes = new ArrayList<Hero>();
   
   HeroSet() {
-    _heroes.add(new Shorty());
-    _heroes.add(new Batman());
-    _heroes.add(new Robin());
+    Hero shorty = getHeroShorty();
+    Hero batman = getHeroBatman();
+    Hero robin = getHeroRobin();
+    
+    shorty.moveTo(config.shortyStartX, config.shortyStartY);
+    batman.moveTo(config.batmanStartX, config.batmanStartY);
+    robin.moveTo(config.robinStartX, config.robinStartY);
+    
+    _heroes.add(shorty);
+    _heroes.add(batman);
+    _heroes.add(robin);
   }
 
   int size() {

@@ -37,13 +37,14 @@ class Config {
   float poopYAccelerator = 0.2;
   color poopColor = color(131, 71, 5);
 
-  int shortyWidth = 71;
-  int shortyHeight = 126;
-  float shortyScaleFactor = 0.8;
-  int shortyXMargin = 50;
-  int shortyYMargin = 280;
-  int shortyYMin = 100;
-  color shortyStrokeColor = color(44, 83, 98);
+
+
+  int shortyStartX = 10; 
+  int shortyStartY = 15;
+  int  batmanStartX;
+  int  batmanStartY = 36;
+  int  robinStartX = 86;
+  int robinStartY = 98;
 
   int guyRate = 1800;
   int guySpeed = 1;
@@ -56,7 +57,6 @@ class Config {
 
   int retiredStartX = 1200;
   int retiredStartY = 0;
-
 }
 
 void checkConfigDebug() {

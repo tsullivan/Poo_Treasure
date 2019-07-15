@@ -106,7 +106,7 @@ class Villain {
     return _isDead;
   }
 
-  void stickPoop(Poop p) {
+  void stickPoop() {
     _isStuck = true;
   }
 }

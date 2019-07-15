@@ -42,7 +42,7 @@ class VillainSet {
     for (int i = 0; i < _villains.size(); i++) {
       Villain vi = get(i);
       if (vi.isHitBy(p)) {
-        vi.stickPoop(p);
+        vi.stickPoop();
         p.stickGuy(vi);
         vs.add(vi);
       };
