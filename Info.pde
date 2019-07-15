@@ -3,8 +3,15 @@ class Info {
   private ArrayList<String> _texts = new ArrayList<String>();
 
   Info() {
-    this.addText("Poop: Return");
-    this.addText("Walk Elephant: Left / Right");
+    String[] infos = {
+      "Walk Elephant: Left / Right", 
+      "Poop: Return", 
+      "Rapid Fire: ?", 
+    };
+    
+    for (int i = infos.length - 1; i >= 0; i--) {
+      this.addText(infos[i]);
+    }
   }
 
   void hide() {
