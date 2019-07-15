@@ -2,9 +2,9 @@ class HeroSet {
   private ArrayList<Hero> _heroes = new ArrayList<Hero>();
   
   HeroSet() {
-    Hero shorty = getHeroShorty();
-    Hero batman = getHeroBatman();
-    Hero robin = getHeroRobin();
+    Hero shorty = new Shorty();
+    Hero batman = new Batman();
+    Hero robin = new Robin();
     
     shorty.moveTo(config.shortyStartX, config.shortyStartY);
     batman.moveTo(config.batmanStartX, config.batmanStartY);

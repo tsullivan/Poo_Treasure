@@ -37,16 +37,31 @@ class Config {
   float poopYAccelerator = 0.2;
   color poopColor = color(131, 71, 5);
 
-
-  float shortyScaleFactor = 1.1;
+  int shortyWidth = 71;
+  int shortyHeight = 126;
+  float shortyScaleFactor = 0.8;
+  int shortyYMin = 100;
+  color shortyStrokeColor = color(44, 83, 98);
   int shortyStartX = 10; 
   int shortyStartY = 15;
-  float batmanScaleFactor = 1.0;
-  int  batmanStartX;
-  int  batmanStartY = 36;
-  float robinScaleFactor = 1.0;
-  int  robinStartX = 86;
-  int robinStartY = 98;
+
+  int batmanWidth = 71;
+  int batmanHeight = 126;
+  float batmanScaleFactor = 0.8;
+  int batmanYMin = 100;
+  color batmanStrokeColor = color(0);
+  int batmanStartX = -100; 
+  int batmanStartY = 250;
+
+  int robinWidth = 71;
+  int robinHeight = 126;
+  float robinScaleFactor = 0.8;
+  int robinYMin = 100;
+  color robinStrokeColor = color(98, 59, 44);
+  int robinStartX = -100; 
+  int robinStartY = 320;
+
+
 
   int villainRate = 1800;
   int villainSpeed = 1;

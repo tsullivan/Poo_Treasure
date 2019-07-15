@@ -31,102 +31,119 @@ class Hero { //<>//
     _strokeColor = strokeColor;
   }
 
+
+
   void moveTo(int x, int y) {
     _x = x;
     _y = y;
   }
+  LifeBall getLB() {
+    return new LifeBall(
+      config.shortyStartX, 
+      config.shortyStartY, 
+      config.shortyWidth, 
+      config.shortyHeight, 
+      config.shortyScaleFactor
+      );
+  }
+
 
   void draw() {
     PShape svg;
+    LifeBall lB = this.getLB();
+
     if (_previousDirection == PT_LEFT) {
-      svg = cleanShape(_svgL, _strokeColor, _scaleFactor);
+      svg = cleanShape(_svgL, _strokeColor, lB.scaleFactor);
     } else {
-      svg = cleanShape(_svgR, _strokeColor, _scaleFactor);
+      svg = cleanShape(_svgR, _strokeColor, lB.scaleFactor);
     }
-    shape(svg, _x, _y, _width, _height);
+    shape(svg, lB.startX, lB.startY, lB.lWidth, lB.lHeight);
+
+    if (config.debug) {
+      stroke(_strokeColor);
+      strokeWeight(1);
+      line(width, 0, lB.startX, lB.startY + lB.lHeight);
+    }
   }
 }
 
 class LifeBall {
   int startX;
   int startY;
-  int scaleFactor;
-  LifeBall(int tX, int tY, float sF) {
+  int lWidth;
+  int lHeight;
+  float scaleFactor;
+  LifeBall(int tX, int tY, int tW, int tH, float sF) {
     startX = tX;
     startY = tY;
+    lWidth = tW;
+    lHeight = tH;
     scaleFactor = sF;
   }
 }
 
 class Shorty extends Hero {
   Shorty() {
-   
-
-  super(
-    loadShape("Shorty-L.svg"), 
-    loadShape("Shorty-R.svg"), 
-    config.shortyWidth, 
-    config.shortyHeight, 
-    config.shortyScaleFactor,
-    config.shortyStrokeColor,
-
-    );
+    super(
+      loadShape("Shorty-L.svg"), 
+      loadShape("Shorty-R.svg"), 
+      config.shortyWidth, 
+      config.shortyHeight, 
+      config.shortyScaleFactor, 
+      config.shortyStrokeColor
+      );
   };
   LifeBall getLB() {
     return new LifeBall(
       config.shortyStartX, 
       config.shortyStartY, 
-      config.shortyScaleFactor, 
+      config.shortyWidth, 
+      config.shortyHeight, 
+      config.shortyScaleFactor
       );
   }
 }
 
 class Batman extends Hero {
-  float getLife() {
-    return config.shortyScaleFactor;
+  Batman() {
+    super(
+      loadShape("Batman.svg"), 
+      loadShape("Batman.svg"), 
+      config.batmanWidth, 
+      config.batmanHeight, 
+      config.batmanScaleFactor, 
+      config.batmanStrokeColor
+      );
+  };
+  LifeBall getLB() {
+    return new LifeBall(
+      config.batmanStartX, 
+      config.batmanStartY, 
+      config.batmanWidth, 
+      config.batmanHeight, 
+      config.batmanScaleFactor
+      );
   }
 }
 
 class Robin extends Hero {
-  float getSF() {
-    return config.shortyScaleFactor;
+  Robin() {
+    super(
+      loadShape("Robin.svg"), 
+      loadShape("Robin.svg"), 
+      config.robinWidth, 
+      config.robinHeight, 
+      config.robinScaleFactor, 
+      config.robinStrokeColor
+      );
+  };
+  LifeBall getLB() {
+    return new LifeBall(
+      config.robinStartX, 
+      config.robinStartY, 
+      config.robinWidth, 
+      config.robinHeight, 
+      config.robinScaleFactor
+      );
   }
-}
-
-Hero getHeroShorty() {  
-  
-}
-
-Hero getHeroBatman() {
-  int batmanWidth = 300;
-  int batmanHeight = 400;
-  float batmanScaleFactor = config.batmanScaleFactor;
-  float batmanCenterXOffset = 1.15; // OOPs this shouldnt be a hero field
-  color batmanColor = color(0);
-
-  return new Hero(
-    loadShape("Batman.svg"), 
-    loadShape("Batman.svg"), 
-    batmanHeight, 
-    batmanWidth, 
-    batmanScaleFactor, 
-    batmanColor
-    );
-}
-
-Hero getHeroRobin() {
-  int robinWidth = 300;
-  int robinHeight = 400;
-  float robinScaleFactor = config.robinScaleFactor;
-  float robinCenterXOffset = 1.15; // OOPs this shouldnt be a hero field
-  color robinColor = color(0);
-
-  return new Hero(
-    loadShape("Robin.svg"), 
-    loadShape("Robin.svg"), 
-    robinHeight, 
-    robinWidth, 
-    robinScaleFactor, 
-    robinColor
-    );
 }
