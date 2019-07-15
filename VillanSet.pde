@@ -7,7 +7,7 @@ class VillainSet {
   }
 
   Villain get(int idx) {
-    if (idx >= _villains.size()) { // a guy died
+    if (idx >= _villains.size()) { // a villain died
       return null;
     }
     return _villains.get(idx);
@@ -31,8 +31,8 @@ class VillainSet {
       gi.draw();
     }
 
-    if (millis() - _lastVillain > config.guyRate) {
-      // check the timelast and add a guy
+    if (millis() - _lastVillain > config.villainRate) {
+      // check the timelast and add a villain
       add();
     }
   }

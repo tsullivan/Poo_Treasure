@@ -46,14 +46,14 @@ class Config {
   int  robinStartX = 86;
   int robinStartY = 98;
 
-  int guyRate = 1800;
-  int guySpeed = 1;
-  float guyAcceleratorX = 1.05;
-  float guyAcceleratorY = 1;
-  float guyMaxSpeed = 19;
-  int guyStartX = -200;
-  int guyEndX = 1200;
-  int guyStartY = 520;
+  int villainRate = 1800;
+  int villainSpeed = 1;
+  float villainAcceleratorX = 1.05;
+  float villainAcceleratorY = 1;
+  float villainMaxSpeed = 19;
+  int villainStartX = -200;
+  int villainEndX = 1200;
+  int villainStartY = 520;
 
   int retiredStartX = 1200;
   int retiredStartY = 0;

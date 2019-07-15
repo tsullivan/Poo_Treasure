@@ -1,5 +1,5 @@
 class Villain {
-  private float _speed = config.guySpeed;
+  private float _speed = config.villainSpeed;
   private float _distance = 0;
   private int _x;
   private int _y;
@@ -21,12 +21,12 @@ class Villain {
     _height = tempHeight;
     _centerXOffset = tempCenterXOffset;
 
-    _x = config.guyStartX;
-    _y = config.guyStartY;
+    _x = config.villainStartX;
+    _y = config.villainStartY;
   }
 
   boolean checkDraw() {
-    if (_distance > config.guyEndX) {
+    if (_distance > config.villainEndX) {
       if (_isStuck && !_isRetired) {
         _isRetired = true;
         _y = config.retiredStartX;
@@ -52,12 +52,12 @@ class Villain {
     }
 
     if (_isRetired) {
-      _x = floor(_x - config.guySpeed);
+      _x = floor(_x - config.villainSpeed);
     } else {
-      _speed = min(_speed * config.guyAcceleratorX, config.guyMaxSpeed);
+      _speed = min(_speed * config.villainAcceleratorX, config.villainMaxSpeed);
       _distance += _speed;
       if (config.debug) {
-        println("speed: " + _speed + " " + this);
+        //println("speed: " + _speed + " " + this);
       }
       _x = floor(_x + _speed);
     }
@@ -86,7 +86,7 @@ class Villain {
     if (config.debug) {
       stroke(200, 0, 200);
       strokeWeight(1);
-      line(p.getCenterX(), pMaxY, getCenterX(), _y - config.poopHitBufferY); // poop to guy line
+      line(p.getCenterX(), pMaxY, getCenterX(), _y - config.poopHitBufferY); // poop to villain line
       line(_x - config.poopHitBufferX, _y - config.poopHitBufferY, _x + _width + config.poopHitBufferX, _y - config.poopHitBufferY); // top line
       line(_x - config.poopHitBufferX, _y - config.poopHitBufferX, _x - config.poopHitBufferX, config.poopStopY); // left edge
       line(_x + _width + config.poopHitBufferX, _y - config.poopHitBufferX, _x + _width + config.poopHitBufferX, config.poopStopY); // right edge
