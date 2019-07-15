@@ -1,9 +1,9 @@
-class Hero {
+class Hero { //<>//
 
   // TODO void move to x/y method
   // TODO private boolean _isConnected; // to the eleph
-int _x;
-int _y;
+  int _x;
+  int _y;
   private PShape _svgL;
   private PShape _svgR;
   int _width;
@@ -30,14 +30,14 @@ int _y;
     _scaleFactor = scaleFactor;
     _strokeColor = strokeColor;
   }
-  
+
   void moveTo(int x, int y) {
     _x = x;
     _y = y;
   }
 
   void draw() {
-    PShape svg; //<>//
+    PShape svg;
     if (_previousDirection == PT_LEFT) {
       svg = cleanShape(_svgL, _strokeColor, _scaleFactor);
     } else {
@@ -47,21 +47,54 @@ int _y;
   }
 }
 
-Hero getHeroShorty() {  
-  int shortyWidth = 133;
-  int shortyHeight = 120;
-  float shortyScaleFactor = config.shortyScaleFactor;
-  float shortyCenterXOffset = 1.15;
-  color shortyStrokeColor = color(44, 83, 98);
+class LifeBall {
+  int startX;
+  int startY;
+  int scaleFactor;
+  LifeBall(int tX, int tY, float sF) {
+    startX = tX;
+    startY = tY;
+    scaleFactor = sF;
+  }
+}
 
-  return new Hero(
+class Shorty extends Hero {
+  Shorty() {
+   
+
+  super(
     loadShape("Shorty-L.svg"), 
     loadShape("Shorty-R.svg"), 
-    shortyWidth, 
-    shortyHeight, 
-    shortyScaleFactor, 
-    shortyStrokeColor
+    config.shortyWidth, 
+    config.shortyHeight, 
+    config.shortyScaleFactor,
+    config.shortyStrokeColor,
+
     );
+  };
+  LifeBall getLB() {
+    return new LifeBall(
+      config.shortyStartX, 
+      config.shortyStartY, 
+      config.shortyScaleFactor, 
+      );
+  }
+}
+
+class Batman extends Hero {
+  float getLife() {
+    return config.shortyScaleFactor;
+  }
+}
+
+class Robin extends Hero {
+  float getSF() {
+    return config.shortyScaleFactor;
+  }
+}
+
+Hero getHeroShorty() {  
+  
 }
 
 Hero getHeroBatman() {
