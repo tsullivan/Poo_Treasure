@@ -38,11 +38,13 @@ class Config {
   color poopColor = color(131, 71, 5);
 
 
-
+  float shortyScaleFactor = 1.1;
   int shortyStartX = 10; 
   int shortyStartY = 15;
+  float batmanScaleFactor = 1.0;
   int  batmanStartX;
   int  batmanStartY = 36;
+  float robinScaleFactor = 1.0;
   int  robinStartX = 86;
   int robinStartY = 98;
 
@@ -60,10 +62,24 @@ class Config {
 }
 
 void checkConfigDebug() {
-  if (key == 'U') {
-    config.guyMaxSpeed += 0.2;
-  } else if (key == 'u') {
-    config.guyMaxSpeed -= 0.2;
+  if (key == 'S') {
+    config.shortyScaleFactor += 0.2;
+  } else if (key == 's') {
+    config.shortyScaleFactor -= 0.2;
   }
-  println("guyMaxSpeed: " + config.guyMaxSpeed);
+  println("shortyScaleFactor: " + config.shortyScaleFactor);
+
+  if (key == 'B') {
+    config.batmanScaleFactor += 0.2;
+  } else if (key == 'b') {
+    config.batmanScaleFactor -= 0.2;
+  }
+  println("batmanScaleFactor: " + config.batmanScaleFactor);
+
+  if (key == 'R') {
+    config.robinScaleFactor += 0.2;
+  } else if (key == 'r') {
+    config.robinScaleFactor -= 0.2;
+  }
+  println("robinScaleFactor: " + config.robinScaleFactor);
 }

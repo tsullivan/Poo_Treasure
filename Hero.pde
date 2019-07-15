@@ -20,7 +20,6 @@ int _y;
     int widdth, 
     int heiight, 
     float scaleFactor, 
-    float centerXOffset, 
     color strokeColor
     ) {
     _svgL = tempSvgL;
@@ -29,7 +28,6 @@ int _y;
     _width = widdth;
     _height = heiight;
     _scaleFactor = scaleFactor;
-    _centerXOffset = centerXOffset;
     _strokeColor = strokeColor;
   }
   
@@ -39,7 +37,7 @@ int _y;
   }
 
   void draw() {
-    PShape svg;
+    PShape svg; //<>//
     if (_previousDirection == PT_LEFT) {
       svg = cleanShape(_svgL, _strokeColor, _scaleFactor);
     } else {
@@ -52,7 +50,7 @@ int _y;
 Hero getHeroShorty() {  
   int shortyWidth = 133;
   int shortyHeight = 120;
-  float shortyScaleFactor = 1.2;
+  float shortyScaleFactor = config.shortyScaleFactor;
   float shortyCenterXOffset = 1.15;
   color shortyStrokeColor = color(44, 83, 98);
 
@@ -62,7 +60,6 @@ Hero getHeroShorty() {
     shortyWidth, 
     shortyHeight, 
     shortyScaleFactor, 
-    shortyCenterXOffset, 
     shortyStrokeColor
     );
 }
@@ -70,7 +67,7 @@ Hero getHeroShorty() {
 Hero getHeroBatman() {
   int batmanWidth = 300;
   int batmanHeight = 400;
-  float batmanScaleFactor = 1.5;
+  float batmanScaleFactor = config.batmanScaleFactor;
   float batmanCenterXOffset = 1.15; // OOPs this shouldnt be a hero field
   color batmanColor = color(0);
 
@@ -80,7 +77,6 @@ Hero getHeroBatman() {
     batmanHeight, 
     batmanWidth, 
     batmanScaleFactor, 
-    batmanCenterXOffset, 
     batmanColor
     );
 }
@@ -88,7 +84,7 @@ Hero getHeroBatman() {
 Hero getHeroRobin() {
   int robinWidth = 300;
   int robinHeight = 400;
-  float robinScaleFactor = 1.5;
+  float robinScaleFactor = config.robinScaleFactor;
   float robinCenterXOffset = 1.15; // OOPs this shouldnt be a hero field
   color robinColor = color(0);
 
@@ -98,7 +94,6 @@ Hero getHeroRobin() {
     robinHeight, 
     robinWidth, 
     robinScaleFactor, 
-    robinCenterXOffset, 
     robinColor
     );
 }
