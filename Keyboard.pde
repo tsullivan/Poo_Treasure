@@ -2,8 +2,14 @@ class Keyboard {
   void checkKey() {
     if (key == ' ') {
       elephant.poop(poops);
+      return;
     }
-    
+
+    if (key == 's' || key == 'S') {
+      Hero next = elephant.getRider().getNextHero(); 
+      elephant.setRider(next);
+    }
+
     switch (keyCode) {
     case LEFT:
       elephant.moveLeft();

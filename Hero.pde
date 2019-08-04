@@ -1,7 +1,5 @@
 class Hero {
 
-  // TODO void move to x/y method
-  // TODO private boolean _isConnected; // to the eleph
   int _x;
   int _y;
   private PShape _svgL;
@@ -15,6 +13,8 @@ class Hero {
 
   private short _previousDirection = -1;
 
+  Hero _nextHero = null;
+  
   Hero(
     PShape tempSvgL, 
     PShape tempSvgR, 
@@ -34,9 +34,12 @@ class Hero {
     _name = name;
   }
 
-  void moveTo(int x, int y) {
-    _x = x;
-    _y = y;
+  void embarkTo(int destX, int destY) {
+    int xDelta = destX - _x;
+    int yDelta = destY - _y;
+    
+    _x = _x + round(xDelta / config.heroEmbarkSpeed);
+    _y = _y + round(yDelta / config.heroEmbarkSpeed);
   }
 
   HeroSetup getLB() {
@@ -48,7 +51,6 @@ class Hero {
       config.shortyScaleFactor
       );
   }
-
 
   void draw() {
     PShape svg;
@@ -60,12 +62,10 @@ class Hero {
       svg = cleanShape(_svgR, _strokeColor, lB.scaleFactor);
     }
 
-    if (elephant.getRider().equals(this)) {
-      println(_name + " is the rider");
-      moveTo(elephant.getRiderX(), elephant.getRiderY());
+    if (elephant.isReadyToRide() && elephant.getRider().equals(this)) {
+      embarkTo(elephant.getRiderX(), elephant.getRiderY());
     } else {
-      _y = lB.startY;
-      _x = lB.startX;
+      embarkTo(lB.startX, lB.startY);
     }
     shape(svg, _x, _y, lB.lWidth, lB.lHeight);
 
@@ -75,74 +75,12 @@ class Hero {
       line(width, 0, lB.startX, lB.startY + lB.lHeight);
     }
   }
-}
-
-
-class Shorty extends Hero {
-  Shorty() {
-    super(
-      loadShape("Shorty-L.svg"), 
-      loadShape("Shorty-R.svg"), 
-      config.shortyWidth, 
-      config.shortyHeight, 
-      config.shortyScaleFactor, 
-      config.shortyStrokeColor, 
-      "shorty"
-      );
-  };
-  HeroSetup getSetup() {
-    return new HeroSetup(
-      config.shortyStartX, 
-      config.shortyStartY, 
-      config.shortyWidth, 
-      config.shortyHeight, 
-      config.shortyScaleFactor
-      );
+  
+  void setNextHero(Hero h) {
+    _nextHero = h;
   }
-}
-
-class Batman extends Hero {
-  Batman() {
-    super(
-      loadShape("Batman.svg"), 
-      loadShape("Batman.svg"), 
-      config.batmanWidth, 
-      config.batmanHeight, 
-      config.batmanScaleFactor, 
-      config.batmanStrokeColor, 
-      "batman"
-      );
-  };
-  HeroSetup getLB() {
-    return new HeroSetup(
-      config.batmanStartX, 
-      config.batmanStartY, 
-      config.batmanWidth, 
-      config.batmanHeight, 
-      config.batmanScaleFactor
-      );
-  }
-}
-
-class Robin extends Hero {
-  Robin() {
-    super(
-      loadShape("Robin.svg"), 
-      loadShape("Robin.svg"), 
-      config.robinWidth, 
-      config.robinHeight, 
-      config.robinScaleFactor, 
-      config.robinStrokeColor, 
-      "robin"
-      );
-  };
-  HeroSetup getLB() {
-    return new HeroSetup(
-      config.robinStartX, 
-      config.robinStartY, 
-      config.robinWidth, 
-      config.robinHeight, 
-      config.robinScaleFactor
-      );
+  
+  Hero getNextHero() {
+    return _nextHero;
   }
 }

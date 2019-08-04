@@ -60,6 +60,8 @@ class Config {
   int robinStartY = 95;
   float robinScaleFactor = 0.8;
   color robinStrokeColor = color(98, 59, 44);
+  
+  float heroEmbarkSpeed = 4.5;
 
   int villainRate = 1800;
   int villainSpeed = 1;

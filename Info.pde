@@ -6,7 +6,7 @@ class Info {
     String[] infos = {
       "Walk Elephant: Left / Right", 
       "Poop: Return", 
-      "Rapid Fire: ?", 
+      "Switch Hero: s", 
     };
     
     for (int i = infos.length - 1; i >= 0; i--) {

@@ -24,10 +24,14 @@ void setup() {
   Hero shorty = new Shorty();
   Hero robin = new Robin();
   Hero batman = new Batman();
+  shorty.setNextHero(robin);
+  robin.setNextHero(batman);
+  batman.setNextHero(shorty);
+  
 
-  shorty.moveTo(config.shortyStartX, config.shortyStartY);
-  robin.moveTo(config.robinStartX, config.robinStartY);
-  batman.moveTo(config.batmanStartX, config.batmanStartY);
+  shorty.embarkTo(config.shortyStartX, config.shortyStartY);
+  robin.embarkTo(config.robinStartX, config.robinStartY);
+  batman.embarkTo(config.batmanStartX, config.batmanStartY);
 
   heroes.add(shorty);
   heroes.add(robin);
@@ -65,6 +69,9 @@ PShape cleanShape(PShape svg, color stroke, float scaleFactor) {
   return svg;
 }
 
+/*
+ * Heroes
+ */
 class HeroSetup {
   int startX;
   int startY;
@@ -78,5 +85,74 @@ class HeroSetup {
     lWidth = tW;
     lHeight = tH;
     scaleFactor = sF;
+  }
+}
+
+class Shorty extends Hero {
+  Shorty() {
+    super(
+      loadShape("Shorty-L.svg"), 
+      loadShape("Shorty-R.svg"), 
+      config.shortyWidth, 
+      config.shortyHeight, 
+      config.shortyScaleFactor, 
+      config.shortyStrokeColor, 
+      "shorty"
+      );
+  };
+  HeroSetup getSetup() {
+    return new HeroSetup(
+      config.shortyStartX, 
+      config.shortyStartY, 
+      config.shortyWidth, 
+      config.shortyHeight, 
+      config.shortyScaleFactor
+      );
+  }
+}
+
+class Batman extends Hero {
+  Batman() {
+    super(
+      loadShape("Batman.svg"), 
+      loadShape("Batman.svg"), 
+      config.batmanWidth, 
+      config.batmanHeight, 
+      config.batmanScaleFactor, 
+      config.batmanStrokeColor, 
+      "batman"
+      );
+  };
+  HeroSetup getLB() {
+    return new HeroSetup(
+      config.batmanStartX, 
+      config.batmanStartY, 
+      config.batmanWidth, 
+      config.batmanHeight, 
+      config.batmanScaleFactor
+      );
+  }
+}
+
+class Robin extends Hero {
+  Robin() {
+    super(
+      loadShape("Robin.svg"), 
+      loadShape("Robin.svg"), 
+      config.robinWidth, 
+      config.robinHeight, 
+      config.robinScaleFactor, 
+      config.robinStrokeColor, 
+      "robin"
+      );
+  };
+  HeroSetup getLB() {
+    return new HeroSetup(
+      config.robinStartX, 
+      config.robinStartY, 
+      config.robinWidth, 
+      config.robinHeight, 
+      config.robinScaleFactor
+      );
   }
 }

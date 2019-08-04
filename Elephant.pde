@@ -9,12 +9,15 @@ class Elephant {
   private int _lastMove = 0;
 
   private Hero _rider;
+  private int _riderStartMillis;
+  private int _riderTurnMillis;
 
   Elephant() {
     _svgR = loadShape("Elephant-R.svg");
     _svgL = loadShape("Elephant-L.svg");
 
     _rider = null;
+    _riderTurnMillis = 0;
   }
 
   void draw() {
@@ -103,10 +106,16 @@ class Elephant {
   }
 
   void setRider(Hero h) {
+    _riderStartMillis = millis();
     this._rider = h;
   }
 
   Hero getRider() {
     return this._rider;
+  }
+  
+  boolean isReadyToRide() {
+    _riderTurnMillis = millis() - _riderStartMillis;
+     return _riderTurnMillis > 1100;
   }
 }
