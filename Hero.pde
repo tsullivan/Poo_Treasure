@@ -1,4 +1,4 @@
-class Hero { //<>//
+class Hero { //<>// //<>//
 
   // TODO void move to x/y method
   // TODO private boolean _isConnected; // to the eleph
@@ -37,8 +37,8 @@ class Hero { //<>//
     _x = x;
     _y = y;
   }
-  LifeBall getLB() {
-    return new LifeBall(
+  PositionStats getLB() {
+    return new PositionStats(
       config.shortyStartX, 
       config.shortyStartY, 
       config.shortyWidth, 
@@ -50,7 +50,7 @@ class Hero { //<>//
 
   void draw() {
     PShape svg;
-    LifeBall lB = this.getLB();
+    PositionStats lB = this.getLB();
 
     if (_previousDirection == PT_LEFT) {
       svg = cleanShape(_svgL, _strokeColor, lB.scaleFactor);
@@ -67,13 +67,14 @@ class Hero { //<>//
   }
 }
 
-class LifeBall {
+class PositionStats {
   int startX;
   int startY;
   int lWidth;
   int lHeight;
   float scaleFactor;
-  LifeBall(int tX, int tY, int tW, int tH, float sF) {
+  
+  PositionStats(int tX, int tY, int tW, int tH, float sF) {
     startX = tX;
     startY = tY;
     lWidth = tW;
@@ -93,8 +94,8 @@ class Shorty extends Hero {
       config.shortyStrokeColor
       );
   };
-  LifeBall getLB() {
-    return new LifeBall(
+  PositionStats getLB() {
+    return new PositionStats(
       config.shortyStartX, 
       config.shortyStartY, 
       config.shortyWidth, 
@@ -115,8 +116,8 @@ class Batman extends Hero {
       config.batmanStrokeColor
       );
   };
-  LifeBall getLB() {
-    return new LifeBall(
+  PositionStats getLB() {
+    return new PositionStats(
       config.batmanStartX, 
       config.batmanStartY, 
       config.batmanWidth, 
@@ -137,8 +138,8 @@ class Robin extends Hero {
       config.robinStrokeColor
       );
   };
-  LifeBall getLB() {
-    return new LifeBall(
+  PositionStats getLB() {
+    return new PositionStats(
       config.robinStartX, 
       config.robinStartY, 
       config.robinWidth, 

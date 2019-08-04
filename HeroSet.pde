@@ -3,16 +3,16 @@ class HeroSet {
   
   HeroSet() {
     Hero shorty = new Shorty();
-    Hero batman = new Batman();
     Hero robin = new Robin();
+    Hero batman = new Batman();
     
     shorty.moveTo(config.shortyStartX, config.shortyStartY);
-    batman.moveTo(config.batmanStartX, config.batmanStartY);
     robin.moveTo(config.robinStartX, config.robinStartY);
+    batman.moveTo(config.batmanStartX, config.batmanStartY);
     
     _heroes.add(shorty);
-    _heroes.add(batman);
     _heroes.add(robin);
+    _heroes.add(batman);
   }
 
   int size() {
