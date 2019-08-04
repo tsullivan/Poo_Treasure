@@ -15,10 +15,25 @@ Info info = new Info();
 void setup() {
   size(1000, 750);
   frameRate(16);
+
   elephant = new Elephant();
   poops = new PoopSet();
-  heroes = new HeroSet();
   villains = new VillainSet();
+  heroes = new HeroSet();
+
+  Hero shorty = new Shorty();
+  Hero robin = new Robin();
+  Hero batman = new Batman();
+
+  shorty.moveTo(config.shortyStartX, config.shortyStartY);
+  robin.moveTo(config.robinStartX, config.robinStartY);
+  batman.moveTo(config.batmanStartX, config.batmanStartY);
+
+  heroes.add(shorty);
+  heroes.add(robin);
+  heroes.add(batman);
+
+  elephant.setRider(shorty);
 }
 
 void draw() {
@@ -48,4 +63,20 @@ PShape cleanShape(PShape svg, color stroke, float scaleFactor) {
   strokeWeight(10 * scaleFactor);
   stroke(stroke); 
   return svg;
+}
+
+class HeroSetup {
+  int startX;
+  int startY;
+  int lWidth;
+  int lHeight;
+  float scaleFactor;
+
+  HeroSetup(int tX, int tY, int tW, int tH, float sF) {
+    startX = tX;
+    startY = tY;
+    lWidth = tW;
+    lHeight = tH;
+    scaleFactor = sF;
+  }
 }

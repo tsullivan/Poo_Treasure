@@ -11,6 +11,7 @@ class Hero {
   float _scaleFactor;
   float _centerXOffset;
   color _strokeColor;
+  String _name;
 
   private short _previousDirection = -1;
 
@@ -20,7 +21,8 @@ class Hero {
     int widdth, 
     int heiight, 
     float scaleFactor, 
-    color strokeColor
+    color strokeColor, 
+    String name
     ) {
     _svgL = tempSvgL;
     _svgR = tempSvgR;
@@ -29,16 +31,16 @@ class Hero {
     _height = heiight;
     _scaleFactor = scaleFactor;
     _strokeColor = strokeColor;
+    _name = name;
   }
-
-
 
   void moveTo(int x, int y) {
     _x = x;
     _y = y;
   }
-  PositionStats getLB() {
-    return new PositionStats(
+
+  HeroSetup getLB() {
+    return new HeroSetup(
       config.shortyStartX, 
       config.shortyStartY, 
       config.shortyWidth, 
@@ -50,14 +52,22 @@ class Hero {
 
   void draw() {
     PShape svg;
-    PositionStats lB = this.getLB();
+    HeroSetup lB = this.getLB();
 
     if (_previousDirection == PT_LEFT) {
       svg = cleanShape(_svgL, _strokeColor, lB.scaleFactor);
     } else {
       svg = cleanShape(_svgR, _strokeColor, lB.scaleFactor);
     }
-    shape(svg, lB.startX, lB.startY, lB.lWidth, lB.lHeight);
+
+    if (elephant.getRider().equals(this)) {
+      println(_name + " is the rider");
+      moveTo(elephant.getRiderX(), elephant.getRiderY());
+    } else {
+      _y = lB.startY;
+      _x = lB.startX;
+    }
+    shape(svg, _x, _y, lB.lWidth, lB.lHeight);
 
     if (config.debug) {
       stroke(_strokeColor);
@@ -67,21 +77,6 @@ class Hero {
   }
 }
 
-class PositionStats {
-  int startX;
-  int startY;
-  int lWidth;
-  int lHeight;
-  float scaleFactor;
-  
-  PositionStats(int tX, int tY, int tW, int tH, float sF) {
-    startX = tX;
-    startY = tY;
-    lWidth = tW;
-    lHeight = tH;
-    scaleFactor = sF;
-  }
-}
 
 class Shorty extends Hero {
   Shorty() {
@@ -91,11 +86,12 @@ class Shorty extends Hero {
       config.shortyWidth, 
       config.shortyHeight, 
       config.shortyScaleFactor, 
-      config.shortyStrokeColor
+      config.shortyStrokeColor, 
+      "shorty"
       );
   };
-  PositionStats getLB() {
-    return new PositionStats(
+  HeroSetup getSetup() {
+    return new HeroSetup(
       config.shortyStartX, 
       config.shortyStartY, 
       config.shortyWidth, 
@@ -113,11 +109,12 @@ class Batman extends Hero {
       config.batmanWidth, 
       config.batmanHeight, 
       config.batmanScaleFactor, 
-      config.batmanStrokeColor
+      config.batmanStrokeColor, 
+      "batman"
       );
   };
-  PositionStats getLB() {
-    return new PositionStats(
+  HeroSetup getLB() {
+    return new HeroSetup(
       config.batmanStartX, 
       config.batmanStartY, 
       config.batmanWidth, 
@@ -135,11 +132,12 @@ class Robin extends Hero {
       config.robinWidth, 
       config.robinHeight, 
       config.robinScaleFactor, 
-      config.robinStrokeColor
+      config.robinStrokeColor, 
+      "robin"
       );
   };
-  PositionStats getLB() {
-    return new PositionStats(
+  HeroSetup getLB() {
+    return new HeroSetup(
       config.robinStartX, 
       config.robinStartY, 
       config.robinWidth, 

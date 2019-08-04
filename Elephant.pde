@@ -8,9 +8,13 @@ class Elephant {
   private float _speed = config.elephantSpeed;
   private int _lastMove = 0;
 
+  private Hero _rider;
+
   Elephant() {
     _svgR = loadShape("Elephant-R.svg");
     _svgL = loadShape("Elephant-L.svg");
+
+    _rider = null;
   }
 
   void draw() {
@@ -86,5 +90,23 @@ class Elephant {
     }
 
     p1.add(x, y);
+  }
+  
+  int getRiderX() {
+    if (_previousDirection == PT_LEFT) {
+       return _x + config.elephantSize / 2 - config.poopStartOffsetX;
+    }
+    return _x + config.poopStartOffsetX * 2;
+  }
+  int getRiderY() {
+    return _y - 80;
+  }
+
+  void setRider(Hero h) {
+    this._rider = h;
+  }
+
+  Hero getRider() {
+    return this._rider;
   }
 }
