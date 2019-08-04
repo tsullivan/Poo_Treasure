@@ -29,7 +29,7 @@ class Keyboard {
 
     if (config.debug) {
       DebugKeyMap dbg = config.getDebugKeyMap();
-      dbg.checkDebug(key);
+      dbg.checkDebug();
     }
   }
 }

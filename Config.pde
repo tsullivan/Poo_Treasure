@@ -101,8 +101,8 @@ class DebugKeyMap {
     hm.put(debugKey, kvm);
   }
 
-  public void checkDebug(String gKey) {
-    KeyValueMap debugVal = hm.get(gKey);
+  public void checkDebug() {
+    KeyValueMap debugVal = hm.get(key);
     if (debugVal != null) {
       println(debugVal.mKey, debugVal.mValue);
     }
