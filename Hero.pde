@@ -1,4 +1,4 @@
-class Hero { //<>// //<>//
+class Hero {
 
   // TODO void move to x/y method
   // TODO private boolean _isConnected; // to the eleph
