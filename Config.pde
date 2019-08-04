@@ -39,29 +39,27 @@ class Config {
 
   int shortyWidth = 71;
   int shortyHeight = 126;
-  float shortyScaleFactor = 0.8;
   int shortyYMin = 100;
-  color shortyStrokeColor = color(44, 83, 98);
   int shortyStartX = 10; 
   int shortyStartY = 15;
+  float shortyScaleFactor = 0.8;
+  color shortyStrokeColor = color(44, 83, 98);
 
-  int batmanWidth = 71;
-  int batmanHeight = 126;
-  float batmanScaleFactor = 0.8;
+  int batmanWidth = 158;
+  int batmanHeight = 179;
   int batmanYMin = 100;
+  int batmanStartX = 10; 
+  int batmanStartY = 180;
+  float batmanScaleFactor = 0.8;
   color batmanStrokeColor = color(0);
-  int batmanStartX = -100; 
-  int batmanStartY = 250;
 
-  int robinWidth = 71;
-  int robinHeight = 126;
-  float robinScaleFactor = 0.8;
+  int robinWidth = 125;
+  int robinHeight = 130;
   int robinYMin = 100;
+  int robinStartX = 75; 
+  int robinStartY = 95;
+  float robinScaleFactor = 0.8;
   color robinStrokeColor = color(98, 59, 44);
-  int robinStartX = -100; 
-  int robinStartY = 320;
-
-
 
   int villainRate = 1800;
   int villainSpeed = 1;
@@ -74,6 +72,41 @@ class Config {
 
   int retiredStartX = 1200;
   int retiredStartY = 0;
+
+  public DebugKeyMap getDebugKeyMap() {
+    DebugKeyMap dbg = new DebugKeyMap();
+    dbg.addMap("S", "shortyScaleFactor", 0.2);
+    dbg.addMap("s", "shortyScaleFactor", -0.2);
+    return dbg;
+  }
+}
+
+class KeyValueMap {
+  public String mKey;
+  public Float mValue;
+  KeyValueMap(String oKey, Float oValue) {
+    mKey = oKey;
+    mValue = oValue;
+  }
+}
+
+class DebugKeyMap {
+  private HashMap<String, KeyValueMap> hm;
+  DebugKeyMap() {
+    hm = new HashMap<String, KeyValueMap>();
+  }
+
+  public void addMap(String debugKey, String configKey, float changeValue) {
+    KeyValueMap kvm = new KeyValueMap(configKey, changeValue);
+    hm.put(debugKey, kvm);
+  }
+
+  public void checkDebug(String gKey) {
+    KeyValueMap debugVal = hm.get(gKey);
+    if (debugVal != null) {
+      println(debugVal.mKey, debugVal.mValue);
+    }
+  }
 }
 
 void checkConfigDebug() {
@@ -90,6 +123,18 @@ void checkConfigDebug() {
     config.batmanScaleFactor -= 0.2;
   }
   println("batmanScaleFactor: " + config.batmanScaleFactor);
+  if (key == 'V') {
+    config.batmanHeight += 1;
+  } else if (key == 'v') {
+    config.batmanHeight -= 1;
+  }
+  println("batmanHeight: " + config.batmanHeight);
+  if (key == 'N') {
+    config.batmanWidth += 1;
+  } else if (key == 'n') {
+    config.batmanWidth -= 1;
+  }
+  println("batmanWidth: " + config.batmanWidth);
 
   if (key == 'R') {
     config.robinScaleFactor += 0.2;
@@ -97,4 +142,16 @@ void checkConfigDebug() {
     config.robinScaleFactor -= 0.2;
   }
   println("robinScaleFactor: " + config.robinScaleFactor);
+  if (key == 'E') {
+    config.robinHeight += 1;
+  } else if (key == 'e') {
+    config.robinHeight -= 1;
+  }
+  println("robinHeight: " + config.robinHeight);
+  if (key == 'T') {
+    config.robinWidth += 1;
+  } else if (key == 't') {
+    config.robinWidth -= 1;
+  }
+  println("robinWidth: " + config.robinWidth);
 }

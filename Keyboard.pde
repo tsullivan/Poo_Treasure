@@ -1,12 +1,9 @@
 class Keyboard {
   void checkKey() {
-    if (keyCode == LEFT) {
-    } else if (keyCode == RIGHT) {
-      elephant.moveRight();
-    } else if (keyCode == ENTER) {
+    if (key == ' ') {
       elephant.poop(poops);
     }
-
+    
     switch (keyCode) {
     case LEFT:
       elephant.moveLeft();
@@ -31,7 +28,8 @@ class Keyboard {
     }
 
     if (config.debug) {
-      checkConfigDebug();
+      DebugKeyMap dbg = config.getDebugKeyMap();
+      dbg.checkDebug(key);
     }
   }
 }
