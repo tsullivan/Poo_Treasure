@@ -110,13 +110,3 @@ class Villain {
     _isStuck = true;
   }
 }
-
-Villain getVillainAlex() {  
-  int alexWidth = 133;
-  int alexHeight = 120;
-  float alexScaleFactor = 1.2;
-  float alexCenterXOffset = 1.15;
-  color alexStrokeColor = color(44, 83, 98);
-  
-  return new Villain(loadShape("Alex.svg"), alexStrokeColor, alexScaleFactor, alexWidth, alexHeight, alexCenterXOffset);
-}
