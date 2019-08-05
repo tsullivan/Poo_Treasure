@@ -62,23 +62,43 @@ class Elephant {
     return min(maxSpeed, _speed);
   }
 
+  int[] walkFn(int destX, int destY) {
+    int[] xy = { destX, destY };
+    return xy;
+  }
+
   void moveLeft() {
-    _x = max(_x - ceil(getSpeed(PT_LEFT)), config.elephantMinX);
+    int destX = max(_x - ceil(getSpeed(PT_LEFT)), config.elephantMinX); 
+    int[] xy = walkFn(destX, _y);
+    _x = xy[0];
+    _y = xy[1];
     _previousDirection = PT_LEFT;
   }
 
   void moveRight() {
-    _x = min(_x + ceil(getSpeed(PT_RIGHT)), config.elephantMaxX);
+    int destX = min(_x + ceil(getSpeed(PT_RIGHT)), config.elephantMaxX); 
+    int[] xy = walkFn(destX, _y);
+    _x = xy[0];
+    _y = xy[1];
+
     _previousDirection = PT_RIGHT;
   }
 
   void moveUp() {
-    _y = max(_y - ceil(getSpeed(PT_UP)), config.elephantMinY);
+    int destY = max(_y - ceil(getSpeed(PT_UP)), config.elephantMinY); 
+    int[] xy = walkFn(_x, destY);
+    _x = xy[0];
+    _y = xy[1];
+
     _previousDirection = PT_UP;
   }
 
   void moveDown() {
-    _y = min(_y + ceil(getSpeed(PT_DOWN)), config.elephantMaxY);
+    int destY = min(_y + ceil(getSpeed(PT_DOWN)), config.elephantMaxY); 
+    int[] xy = walkFn(_x, destY);
+    _x = xy[0];
+    _y = xy[1];
+
     _previousDirection = PT_DOWN;
   }
 
@@ -94,10 +114,10 @@ class Elephant {
 
     p1.add(x, y);
   }
-  
+
   int getRiderX() {
     if (_previousDirection == PT_LEFT) {
-       return _x + config.elephantSize / 2 - config.poopStartOffsetX;
+      return _x + config.elephantSize / 2 - config.poopStartOffsetX;
     }
     return _x + config.poopStartOffsetX * 2;
   }
@@ -113,9 +133,9 @@ class Elephant {
   Hero getRider() {
     return this._rider;
   }
-  
+
   boolean isReadyToRide() {
     _riderTurnMillis = millis() - _riderStartMillis;
-     return _riderTurnMillis > 1100;
+    return _riderTurnMillis > 1100;
   }
 }
