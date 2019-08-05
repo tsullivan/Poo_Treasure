@@ -1,8 +1,6 @@
 class Elephant {
-  private PShape _svgR;
-  private PShape _svgL;
+  private ElephantGraphic _graphic;
 
-  private short _previousDirection = PT_LEFT;
   private int _x = config.elephantSize + config.elephantMinX;
   private int _y = config.elephantMinY;
   private float _speed = config.elephantSpeed;
@@ -12,39 +10,19 @@ class Elephant {
   private int _riderStartMillis;
   private int _riderTurnMillis;
 
-  Elephant() {
-    _svgR = loadShape("Elephant-R.svg");
-    _svgL = loadShape("Elephant-L.svg");
+  public short previousDirection = PT_LEFT;
 
+  Elephant() {
     _rider = null;
     _riderTurnMillis = 0;
-  }
 
-  void draw() {
-    if (config.debug) {
-      stroke(config.elephantStrokeColor);
-      strokeWeight(1);
-      line(config.elephantMinX, 0, config.elephantMinX, height);
-      line(config.elephantMaxX, 0, config.elephantMaxX, height);
-      line(0, config.elephantMinY, width, config.elephantMinY);
-      line(0, config.elephantMaxY, width, config.elephantMaxY);
-    }
-
-    PShape svg;
-    if (_previousDirection == PT_LEFT) {
-      svg = cleanShape(_svgL, config.elephantStrokeColor, config.elephantScaleFactor);
-    } else {
-      svg = cleanShape(_svgR, config.elephantStrokeColor, config.elephantScaleFactor);
-    }
-    shape(svg, _x, _y, config.elephantSize, config.elephantSize);
+    _graphic = new ElephantGraphic();
   }
 
   float getSpeed(short direction) {
-    int slowness = millis() - _lastMove;
-    _lastMove = millis();
-
     float accelerator;
     float maxSpeed;
+
     if (direction == PT_UP || direction == PT_DOWN) {
       accelerator = config.elephantYAccelerator;
       maxSpeed = config.elephantMaxYSpeed;
@@ -53,7 +31,8 @@ class Elephant {
       maxSpeed = config.elephantMaxXSpeed;
     }
 
-    if (slowness < config.elephantAccelerationTimeout && direction == _previousDirection) {
+    int slowness = millis() - _lastMove;
+    if (slowness < config.elephantAccelerationTimeout && direction == previousDirection) {
       _speed = 1 + _speed + accelerator;
     } else {
       _speed = config.elephantSpeed;
@@ -72,7 +51,8 @@ class Elephant {
     int[] xy = walkFn(destX, _y);
     _x = xy[0];
     _y = xy[1];
-    _previousDirection = PT_LEFT;
+    previousDirection = PT_LEFT;
+    _lastMove = millis();
   }
 
   void moveRight() {
@@ -81,7 +61,8 @@ class Elephant {
     _x = xy[0];
     _y = xy[1];
 
-    _previousDirection = PT_RIGHT;
+    previousDirection = PT_RIGHT;
+    _lastMove = millis();
   }
 
   void moveUp() {
@@ -90,7 +71,8 @@ class Elephant {
     _x = xy[0];
     _y = xy[1];
 
-    _previousDirection = PT_UP;
+    _lastMove = millis();
+    previousDirection = PT_UP;
   }
 
   void moveDown() {
@@ -99,14 +81,15 @@ class Elephant {
     _x = xy[0];
     _y = xy[1];
 
-    _previousDirection = PT_DOWN;
+    _lastMove = millis();
+    previousDirection = PT_DOWN;
   }
 
   void poop(PoopSet p1) {
     int x;
     int y = _y;
 
-    if (_previousDirection == PT_LEFT) {
+    if (previousDirection == PT_LEFT) {
       x = _x + config.elephantSize - config.poopStartOffsetX;
     } else {
       x = _x + config.poopStartOffsetX;
@@ -115,8 +98,15 @@ class Elephant {
     p1.add(x, y);
   }
 
+  int getX() {
+    return _x;
+  }
+  int getY() {
+    return _y;
+  }
+
   int getRiderX() {
-    if (_previousDirection == PT_LEFT) {
+    if (previousDirection == PT_LEFT) {
       return _x + config.elephantSize / 2 - config.poopStartOffsetX;
     }
     return _x + config.poopStartOffsetX * 2;
@@ -137,5 +127,47 @@ class Elephant {
   boolean isReadyToRide() {
     _riderTurnMillis = millis() - _riderStartMillis;
     return _riderTurnMillis > 1100;
+  }
+
+  void draw() {
+    _graphic.draw();
+  }
+}
+
+class ElephantGraphic {
+  int _x;
+  int _y;
+
+  void embarkTo(int destX, int destY) {
+    int xDelta = destX - _x;
+    int yDelta = destY - _y;
+
+    _x = _x + round(xDelta / config.heroEmbarkSpeed);
+    _y = _y + round(yDelta / config.heroEmbarkSpeed);
+  }
+
+  void draw() {
+    PShape svgR = loadShape("Elephant-R.svg");
+    PShape svgL = loadShape("Elephant-L.svg");
+
+    if (config.debug) {
+      stroke(config.elephantStrokeColor);
+      strokeWeight(1);
+      line(config.elephantMinX, 0, config.elephantMinX, height);
+      line(config.elephantMaxX, 0, config.elephantMaxX, height);
+      line(0, config.elephantMinY, width, config.elephantMinY);
+      line(0, config.elephantMaxY, width, config.elephantMaxY);
+    }
+
+    PShape svg;
+    if (elephant.previousDirection == PT_LEFT) {
+      svg = cleanShape(svgL, config.elephantStrokeColor, config.elephantScaleFactor);
+    } else {
+      svg = cleanShape(svgR, config.elephantStrokeColor, config.elephantScaleFactor);
+    }
+
+    embarkTo(elephant.getX(), elephant.getY());
+
+    shape(svg, _x, _y, config.elephantSize, config.elephantSize);
   }
 }

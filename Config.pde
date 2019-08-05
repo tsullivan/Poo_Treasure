@@ -17,9 +17,9 @@ class Config {
   int elephantMinY = 1;
   int elephantMaxY = 450;
   int elephantSize = 225;
-  int elephantSpeed = 1;
-  float elephantMaxXSpeed = 11;
-  float elephantMaxYSpeed = 15;
+  float elephantSpeed = 8;
+  float elephantMaxXSpeed = 22;
+  float elephantMaxYSpeed = 22;
   int elephantAccelerationTimeout = 480;
   float elephantXAccelerator = 0.5;
   float elephantYAccelerator = 1;
@@ -64,7 +64,7 @@ class Config {
   float heroEmbarkSpeed = 4.5;
 
   int villainRate = 1800;
-  int villainSpeed = 1;
+  float villainSpeed = 1;
   float villainAcceleratorX = 1.05;
   float villainAcceleratorY = 1;
   float villainMaxSpeed = 19;

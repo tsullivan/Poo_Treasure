@@ -64,8 +64,6 @@ class Hero {
   void draw() {
     PShape svg;
     float scaleFactor = _heroDef.scaleFactor;
-    int startX = _heroDef.startX;
-    int startY = _heroDef.startY;
     int lWidth = _heroDef.hWidth;
     int lHeight = _heroDef.hHeight;
 
@@ -78,14 +76,14 @@ class Hero {
     if (elephant.isReadyToRide() && elephant.getRider().equals(this)) {
       embarkTo(elephant.getRiderX(), elephant.getRiderY());
     } else {
-      embarkTo(startX, startY);
+      embarkTo(_heroDef.startX, _heroDef.startY);
     }
     shape(svg, _x, _y, lWidth, lHeight);
 
     if (config.debug) {
       stroke(_strokeColor);
       strokeWeight(1);
-      line(width, 0, startX, startY + lHeight);
+      line(width, 0, _x, _y + lHeight);
     }
   }
 

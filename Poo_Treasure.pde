@@ -14,7 +14,7 @@ Info info = new Info();
 
 void setup() {
   size(1000, 750);
-  frameRate(16);
+  frameRate(30);
 
   elephant = new Elephant();
   poops = new PoopSet();
@@ -30,7 +30,7 @@ void setup() {
   robin.embarkTo(config.robinStartX, config.robinStartY);
   batman.setNextHero(shorty);
   batman.embarkTo(config.batmanStartX, config.batmanStartY);
-  
+
   heroes.add(shorty);
   heroes.add(robin);
   heroes.add(batman);
