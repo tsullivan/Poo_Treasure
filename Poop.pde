@@ -48,7 +48,7 @@ class Poop {
     strokeWeight(10);
 
     if (_isStuck) {
-      ellipse(_stuckGuy.getCenterX() + _stuckDeltaX, _stuckGuy.getY() + _stuckDeltaY, config.poopSize * 2, config.poopSize / 2);
+      ellipse(_stuckGuy.getCenterX() + _stuckDeltaX, _stuckGuy.getCoordinates()[1] + _stuckDeltaY, config.poopSize * 2, config.poopSize / 2);
       return;
     }
     if (_isSplatted) {
@@ -103,6 +103,6 @@ class Poop {
     _isStuck = true;
     _stuckGuy = g;
     _stuckDeltaX = _x - g.getCenterX();
-    _stuckDeltaY = _y - g.getY();
+    _stuckDeltaY = _y - g.getCoordinates()[1];
   }
 }

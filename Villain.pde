@@ -11,7 +11,6 @@ class Villain {
   private float _centerXOffset;
   private boolean _isDead = false;
   private boolean _isStuck = false;
-  private boolean _isRetired = false;
 
   Villain(PShape tempSvg, color tempStrokeColor, float tempScaleFactor, int tempWidth, int tempHeight, float tempCenterXOffset) {
     _svg = tempSvg;
@@ -25,19 +24,21 @@ class Villain {
     _y = config.villainStartY;
   }
 
-  boolean checkDraw() {
-    if (_distance > config.villainEndX) {
-      if (_isStuck && !_isRetired) {
-        _isRetired = true;
-        _y = config.retiredStartX;
-        _x = config.retiredStartY;
-      } else {
-        _isDead = true;
-        return false;
-      }
-    }
+  int[] getCoordinates() {
+    int[] xy = { _x, _y }; 
+    return xy;
+  }
 
-    return true;
+  boolean checkDraw() {
+    return _distance < config.villainEndX;
+  }
+
+  void embarkTo(int destX, int destY) {
+    int xDelta = destX - _x;
+    int yDelta = destY - _y;
+
+    _x = _x + round(xDelta / 10);
+    _y = _y + round(yDelta / 10);
   }
 
   void draw() {
@@ -51,14 +52,12 @@ class Villain {
       return;
     }
 
-    if (_isRetired) {
-      _x = floor(_x - config.villainSpeed);
+    if (_isStuck) {
+      int[] xy = villains.getTrophyCoords();
+      embarkTo(xy[0], xy[1]);
     } else {
       _speed = min(_speed * config.villainAcceleratorX, config.villainMaxSpeed);
       _distance += _speed;
-      if (config.debug) {
-        //println("speed: " + _speed + " " + this);
-      }
       _x = floor(_x + _speed);
     }
 
@@ -70,12 +69,8 @@ class Villain {
     return floor(_x + (_width / 2) * _centerXOffset);
   }
 
-  int getY() {
-    return _y;
-  }
-
   boolean isHitBy(Poop p) {
-    if (_isDead || _isRetired) {
+    if (_isDead) {
       return false;
     }
 

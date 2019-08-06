@@ -23,6 +23,7 @@ class Config {
   int elephantAccelerationTimeout = 480;
   float elephantXAccelerator = 0.5;
   float elephantYAccelerator = 1;
+  float elephantEmbarkSpeed = 3.8;
 
   int poopStartOffsetY = 85;
   int poopStartOffsetX = 10;
@@ -60,7 +61,7 @@ class Config {
   int robinStartY = 95;
   float robinScaleFactor = 0.8;
   color robinStrokeColor = color(98, 59, 44);
-  
+
   float heroEmbarkSpeed = 4.5;
 
   int villainRate = 1800;

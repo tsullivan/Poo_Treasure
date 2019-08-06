@@ -142,8 +142,8 @@ class ElephantGraphic {
     int xDelta = destX - _x;
     int yDelta = destY - _y;
 
-    _x = _x + round(xDelta / config.heroEmbarkSpeed);
-    _y = _y + round(yDelta / config.heroEmbarkSpeed);
+    _x = _x + round(xDelta / config.elephantEmbarkSpeed);
+    _y = _y + round(yDelta / config.elephantEmbarkSpeed);
   }
 
   void draw() {

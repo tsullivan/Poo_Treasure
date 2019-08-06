@@ -1,5 +1,7 @@
 class VillainSet {
   private ArrayList<Villain> _villains = new ArrayList<Villain>();
+  private HashMap<String, Villain> _hitVillains = new HashMap<String, Villain>();
+
   private int _lastVillain = 0;
 
   int size() {
@@ -14,9 +16,17 @@ class VillainSet {
   }
 
   void add() {
-   Villain alex = getVillainAlex();
-   _villains.add(alex);
-   _lastVillain = millis();
+    Villain alex = getVillainAlex();
+    _villains.add(alex);
+    _lastVillain = millis();
+  }
+
+  int[] getTrophyCoords() {
+    int[] xy = {
+      config.villainTrophyBoxX,
+      max(20, config.villainTrophyBoxY - (_hitVillains.size() * 20)), 
+    };
+    return xy;
   }
 
   void draw() {
@@ -37,14 +47,20 @@ class VillainSet {
     }
   }
 
+  /* TODO
+   * only check if the guy closest to the poop has been hit by the poop
+   */
   ArrayList<Villain> findHitGuys(Poop p) {
     ArrayList<Villain> vs = new ArrayList<Villain>();
     for (int i = 0; i < _villains.size(); i++) {
-      Villain vi = get(i);
-      if (vi.isHitBy(p)) {
-        vi.stickPoop();
-        p.stickGuy(vi);
-        vs.add(vi);
+      Villain villain = get(i);
+      // int[] xy = villain.getCoordinates(); // use this to find the guy with the shortest distance 
+      if (villain.isHitBy(p)) {
+        villain.stickPoop();
+        p.stickGuy(villain);
+        vs.add(villain);
+
+        _hitVillains.put(villain.toString(), villain);
       };
     }
     return vs;
