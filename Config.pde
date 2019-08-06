@@ -73,88 +73,22 @@ class Config {
   int villainEndX = 1200;
   int villainStartY = 520;
 
-  int retiredStartX = 1200;
-  int retiredStartY = 0;
-
-  public DebugKeyMap getDebugKeyMap() {
-    DebugKeyMap dbg = new DebugKeyMap();
-    dbg.addMap("S", "shortyScaleFactor", 0.2);
-    dbg.addMap("s", "shortyScaleFactor", -0.2);
-    return dbg;
-  }
-}
-
-class KeyValueMap {
-  public String mKey;
-  public Float mValue;
-  KeyValueMap(String oKey, Float oValue) {
-    mKey = oKey;
-    mValue = oValue;
-  }
-}
-
-class DebugKeyMap {
-  private HashMap<String, KeyValueMap> hm;
-  DebugKeyMap() {
-    hm = new HashMap<String, KeyValueMap>();
-  }
-
-  public void addMap(String debugKey, String configKey, float changeValue) {
-    KeyValueMap kvm = new KeyValueMap(configKey, changeValue);
-    hm.put(debugKey, kvm);
-  }
-
-  public void checkDebug() {
-    KeyValueMap debugVal = hm.get(key);
-    if (debugVal != null) {
-      println(debugVal.mKey, debugVal.mValue);
-    }
-  }
+  int villainTrophyBoxX = 860;
+  int villainTrophyBoxY = 590;
 }
 
 void checkConfigDebug() {
-  if (key == 'S') {
-    config.shortyScaleFactor += 0.2;
-  } else if (key == 's') {
-    config.shortyScaleFactor -= 0.2;
-  }
-  println("shortyScaleFactor: " + config.shortyScaleFactor);
-
-  if (key == 'B') {
-    config.batmanScaleFactor += 0.2;
-  } else if (key == 'b') {
-    config.batmanScaleFactor -= 0.2;
-  }
-  println("batmanScaleFactor: " + config.batmanScaleFactor);
-  if (key == 'V') {
-    config.batmanHeight += 1;
-  } else if (key == 'v') {
-    config.batmanHeight -= 1;
-  }
-  println("batmanHeight: " + config.batmanHeight);
-  if (key == 'N') {
-    config.batmanWidth += 1;
-  } else if (key == 'n') {
-    config.batmanWidth -= 1;
-  }
-  println("batmanWidth: " + config.batmanWidth);
-
-  if (key == 'R') {
-    config.robinScaleFactor += 0.2;
-  } else if (key == 'r') {
-    config.robinScaleFactor -= 0.2;
-  }
-  println("robinScaleFactor: " + config.robinScaleFactor);
-  if (key == 'E') {
-    config.robinHeight += 1;
-  } else if (key == 'e') {
-    config.robinHeight -= 1;
-  }
-  println("robinHeight: " + config.robinHeight);
   if (key == 'T') {
-    config.robinWidth += 1;
+    config.villainTrophyBoxX += 1;
   } else if (key == 't') {
-    config.robinWidth -= 1;
+    config.villainTrophyBoxX -= 1;
   }
-  println("robinWidth: " + config.robinWidth);
+  println("villainTrophyBoxX: " + config.villainTrophyBoxX);
+
+  if (key == 'Y') {
+    config.villainTrophyBoxY += 1;
+  } else if (key == 'y') {
+    config.villainTrophyBoxY -= 1;
+  }
+  println("villainTrophyBoxY: " + config.villainTrophyBoxY);
 }
