@@ -6,6 +6,7 @@ class Keyboard {
     }
 
     if (key == 's' || key == 'S') {
+      villains.clear();
       Hero next = elephant.getRider().getNextHero(); 
       elephant.setRider(next);
     }

@@ -20,6 +20,11 @@ class VillainSet {
     _villains.add(alex);
     _lastVillain = millis();
   }
+  
+  void clear() {
+    _villains.clear();
+    _hitVillains.clear();
+  }
 
   int[] getTrophyCoords() {
     int[] xy = {
