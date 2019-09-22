@@ -1,8 +1,8 @@
 class Poop {
   private int _x;
-  private float _y;
+  private int _y;
   private int _birthTime = 0;
-  private float _distance = 0;
+  private int _distance = 0;
   private boolean _isSplatted = false;
 
   private boolean _isDead = false;
@@ -17,6 +17,10 @@ class Poop {
     _birthTime = millis();
   }
 
+  int[] getCoordinates() {
+    int[] xy = { _x, _y }; 
+    return xy;
+  }
   boolean checkDraw() {
     if (_isStuck) {
       return true;
@@ -56,7 +60,7 @@ class Poop {
       return;
     }
 
-    _y = _y + config.poopSpeed + _distance;
+    _y = _y + ceil(config.poopSpeed) + _distance;
     _y = min(_y, config.poopStopY);
     ellipse(_x, _y, config.poopSize, config.poopSize);
 

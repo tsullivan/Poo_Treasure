@@ -83,7 +83,7 @@ class Hero {
     if (config.debug) {
       stroke(_strokeColor);
       strokeWeight(1);
-      line(width, 0, _x, _y + lHeight);
+      line(width / 2, 0, _x, _y + lHeight);
     }
   }
 

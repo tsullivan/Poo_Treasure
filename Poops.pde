@@ -20,10 +20,11 @@ class PoopSet {
   }
 
   void draw() {
+    println("poops: " +  _poops.size());
     for (int i = 0; i < _poops.size(); i++) {
       Poop pi = get(i);
       if (!pi.isSplatted() && !pi.isStuck()) {
-        villains.findHitGuys(pi);
+        villains.hitAVillain(pi);
       }
 
       if (pi.isDead()) {

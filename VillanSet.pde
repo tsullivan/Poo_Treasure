@@ -23,7 +23,7 @@ class VillainSet {
 
   int[] getTrophyCoords() {
     int[] xy = {
-      config.villainTrophyBoxX,
+      config.villainTrophyBoxX, 
       max(20, config.villainTrophyBoxY - (_hitVillains.size() * 20)), 
     };
     return xy;
@@ -33,7 +33,7 @@ class VillainSet {
     int vSize = _villains.size();
     for (int i = 0; i < vSize; i++) {
       Villain gi = get(i);
-      if (gi.isDead()) {
+      if (gi.isGone()) {
         _villains.remove(i); // loop will change the actual size
         i = i - 1;
         vSize = vSize - 1;
@@ -47,22 +47,29 @@ class VillainSet {
     }
   }
 
-  /* TODO
-   * only check if the guy closest to the poop has been hit by the poop
-   */
-  ArrayList<Villain> findHitGuys(Poop p) {
-    ArrayList<Villain> vs = new ArrayList<Villain>();
+  void hitAVillain(Poop p) {
+    int[] xyPoop = p.getCoordinates();
+    // find shortest distance villain
+    int minX = width;
+    Villain closestVillain = null;
     for (int i = 0; i < _villains.size(); i++) {
       Villain villain = get(i);
-      // int[] xy = villain.getCoordinates(); // use this to find the guy with the shortest distance 
-      if (villain.isHitBy(p)) {
-        villain.stickPoop();
-        p.stickGuy(villain);
-        vs.add(villain);
-
-        _hitVillains.put(villain.toString(), villain);
-      };
+      int[] xyVillain = villain.getCoordinates();
+      if (abs(xyVillain[0] - xyPoop[0]) < minX) {
+        minX = abs(xyVillain[0] - xyPoop[0]);
+        closestVillain = villain;
+      }
     }
-    return vs;
+    
+    if (closestVillain == null) {
+      return;
+    }
+
+    if (closestVillain.isHitBy(p)) {
+      closestVillain.stickPoop();
+      p.stickGuy(closestVillain);
+
+      _hitVillains.put(closestVillain.toString(), closestVillain);
+    }
   }
 }

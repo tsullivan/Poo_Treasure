@@ -9,8 +9,9 @@ class Villain {
   private int _width;
   private int _height;
   private float _centerXOffset;
-  private boolean _isDead = false;
+  private boolean _isGone = false;
   private boolean _isStuck = false;
+  private boolean _isCollected = false;
 
   Villain(PShape tempSvg, color tempStrokeColor, float tempScaleFactor, int tempWidth, int tempHeight, float tempCenterXOffset) {
     _svg = tempSvg;
@@ -30,7 +31,11 @@ class Villain {
   }
 
   boolean checkDraw() {
-    return _distance < config.villainEndX;
+    if (_distance >= config.villainEndX) {
+      _isGone = true;
+      return false;
+    }
+    return true;
   }
 
   void embarkTo(int destX, int destY) {
@@ -42,23 +47,31 @@ class Villain {
   }
 
   void draw() {
-    if (config.debug) {
-      stroke(_strokeColor);
-      strokeWeight(1);
-      line(getCenterX(), _y, 0, height);
-    }
-
     if (!checkDraw()) {
       return;
     }
 
-    if (_isStuck) {
-      int[] xy = villains.getTrophyCoords();
-      embarkTo(xy[0], xy[1]);
-    } else {
-      _speed = min(_speed * config.villainAcceleratorX, config.villainMaxSpeed);
-      _distance += _speed;
-      _x = floor(_x + _speed);
+    if (config.debug) {
+      stroke(_strokeColor);
+      strokeWeight(1);
+      line(getCenterX(), _y, width / 2, height);
+    }
+
+    // move them around
+    if (!_isCollected) {    
+      if (_isStuck) {
+        int[] xy = villains.getTrophyCoords();
+        int trophyX = xy[0];
+        // find the distance and mark as collected if they walked far enough by now
+        if (abs(trophyX - _x) < 18) {
+          _isCollected = true;
+        }
+        embarkTo(trophyX, xy[1]);
+      } else {
+        _speed = min(_speed * config.villainAcceleratorX, config.villainMaxSpeed);
+        _distance += _speed;
+        _x = floor(_x + _speed);
+      }
     }
 
     _svg = cleanShape(_svg, _strokeColor, _scaleFactor);
@@ -70,7 +83,7 @@ class Villain {
   }
 
   boolean isHitBy(Poop p) {
-    if (_isDead) {
+    if (_isGone || _isCollected) {
       return false;
     }
 
@@ -97,8 +110,8 @@ class Villain {
     return false;
   }
 
-  boolean isDead() {
-    return _isDead;
+  boolean isGone() {
+    return _isGone;
   }
 
   void stickPoop() {

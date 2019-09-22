@@ -2,7 +2,7 @@ class Elephant {
   private ElephantGraphic _graphic;
 
   private int _x = config.elephantSize + config.elephantMinX;
-  private int _y = config.elephantMinY;
+  private int _y = height / 2;
   private float _speed = config.elephantSpeed;
   private int _lastMove = 0;
 
