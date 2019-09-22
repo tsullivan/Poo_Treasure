@@ -34,14 +34,14 @@ class VillainSet {
     for (int i = 0; i < vSize; i++) {
       Villain gi = get(i);
       if (gi.isGone()) {
-        _villains.remove(i); // loop will change the actual size
-        i = i - 1;
+        _villains.remove(i); 
+        i = i - 1; // update the iterator regarding new set size
         vSize = vSize - 1;
       }
       gi.draw();
     }
 
-    if (millis() - _lastVillain > config.villainRate) {
+    if (millis() - _lastVillain > config.villainRate || config.debug) {
       // check the timelast and add a villain
       add();
     }
