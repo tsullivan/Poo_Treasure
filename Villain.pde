@@ -30,12 +30,11 @@ class Villain {
     return xy;
   }
 
-  boolean checkDraw() {
+  boolean ranAway() {
     if (_distance >= config.villainEndX) {
       _isGone = true;
-      return false;
     }
-    return true;
+    return _isGone;
   }
 
   void embarkTo(int destX, int destY) {
@@ -47,7 +46,7 @@ class Villain {
   }
 
   void draw() {
-    if (!checkDraw()) {
+    if (_isGone || ranAway()) {
       return;
     }
 
@@ -62,6 +61,7 @@ class Villain {
       if (_isStuck) {
         int[] xy = villains.getTrophyCoords();
         int trophyX = xy[0];
+        
         // find the distance and mark as collected if they walked far enough by now
         if (abs(trophyX - _x) < 18) {
           _isCollected = true;
@@ -90,15 +90,6 @@ class Villain {
     float pMinX = p.getMinX();
     float pMaxX = p.getMaxX();
     float pMaxY = p.getMaxY();
-
-    if (config.debug) {
-      stroke(200, 0, 200);
-      strokeWeight(1);
-      line(p.getCenterX(), pMaxY, getCenterX(), _y - config.poopHitBufferY); // poop to villain line
-      line(_x - config.poopHitBufferX, _y - config.poopHitBufferY, _x + _width + config.poopHitBufferX, _y - config.poopHitBufferY); // top line
-      line(_x - config.poopHitBufferX, _y - config.poopHitBufferX, _x - config.poopHitBufferX, config.poopStopY); // left edge
-      line(_x + _width + config.poopHitBufferX, _y - config.poopHitBufferX, _x + _width + config.poopHitBufferX, config.poopStopY); // right edge
-    }
 
     if (_x - config.poopHitBufferX <= pMinX) { // x1
       if (_x + _width + config.poopHitBufferX >= pMaxX) { // x2

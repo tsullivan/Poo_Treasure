@@ -43,7 +43,7 @@ class Poop {
   }
 
   void draw() {
-    if (!checkDraw() && !config.debug) {
+    if (!checkDraw()) {
       return;
     }
 

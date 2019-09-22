@@ -30,7 +30,6 @@ class Keyboard {
 
     if (key == '?') { // toggle debug
       config.debug = !config.debug;
-      println("Debug: " + config.debug);
     }
 
     if (config.debug) {

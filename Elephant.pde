@@ -149,16 +149,6 @@ class ElephantGraphic {
   void draw() {
     PShape svgR = loadShape("Elephant-R.svg");
     PShape svgL = loadShape("Elephant-L.svg");
-
-    if (config.debug) {
-      stroke(config.elephantStrokeColor);
-      strokeWeight(1);
-      line(config.elephantMinX, 0, config.elephantMinX, height);
-      line(config.elephantMaxX, 0, config.elephantMaxX, height);
-      line(0, config.elephantMinY, width, config.elephantMinY);
-      line(0, config.elephantMaxY, width, config.elephantMaxY);
-    }
-
     PShape svg;
     if (elephant.previousDirection == PT_LEFT) {
       svg = cleanShape(svgL, config.elephantStrokeColor, config.elephantScaleFactor);

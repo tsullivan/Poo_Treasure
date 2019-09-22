@@ -11,7 +11,7 @@ class PoopSet {
   }
 
   void add(int x, int y) {
-    if (!config.debug && millis() - _lastPoop < config.poopThrottle) { 
+    if (millis() - _lastPoop < config.poopThrottle) { 
       return; // throttle the poops
     }
 
@@ -20,7 +20,6 @@ class PoopSet {
   }
 
   void draw() {
-    println("poops: " +  _poops.size());
     for (int i = 0; i < _poops.size(); i++) {
       Poop pi = get(i);
       if (!pi.isSplatted() && !pi.isStuck()) {

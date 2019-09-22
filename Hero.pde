@@ -79,12 +79,6 @@ class Hero {
       embarkTo(_heroDef.startX, _heroDef.startY);
     }
     shape(svg, _x, _y, lWidth, lHeight);
-
-    if (config.debug) {
-      stroke(_strokeColor);
-      strokeWeight(1);
-      line(width / 2, 0, _x, _y + lHeight);
-    }
   }
 
   void setNextHero(Hero h) {

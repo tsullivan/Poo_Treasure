@@ -91,4 +91,7 @@ void checkConfigDebug() {
     config.villainTrophyBoxY -= 1;
   }
   println("villainTrophyBoxY: " + config.villainTrophyBoxY);
+
+  println("poops: " +  poops.size());
+  println("villains: " +  villains.size());
 }
